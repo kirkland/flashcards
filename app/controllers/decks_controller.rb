@@ -71,7 +71,6 @@ class DecksController < ApplicationController
   end
 
   def game
-    render :text => @deck.title and return
   end
 
   private
