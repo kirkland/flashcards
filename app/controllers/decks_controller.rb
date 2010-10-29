@@ -1,6 +1,4 @@
 class DecksController < ApplicationController
-  # GET /decks
-  # GET /decks.xml
   def index
     @decks = Deck.all
 
@@ -10,8 +8,6 @@ class DecksController < ApplicationController
     end
   end
 
-  # GET /decks/1
-  # GET /decks/1.xml
   def show
     @deck = Deck.find(params[:id])
 
@@ -21,8 +17,6 @@ class DecksController < ApplicationController
     end
   end
 
-  # GET /decks/new
-  # GET /decks/new.xml
   def new
     @deck = Deck.new
 
@@ -32,13 +26,9 @@ class DecksController < ApplicationController
     end
   end
 
-  # GET /decks/1/edit
-  def edit
     @deck = Deck.find(params[:id])
   end
 
-  # POST /decks
-  # POST /decks.xml
   def create
     @deck = Deck.new(params[:deck])
 
@@ -53,8 +43,6 @@ class DecksController < ApplicationController
     end
   end
 
-  # PUT /decks/1
-  # PUT /decks/1.xml
   def update
     @deck = Deck.find(params[:id])
 
@@ -69,8 +57,6 @@ class DecksController < ApplicationController
     end
   end
 
-  # DELETE /decks/1
-  # DELETE /decks/1.xml
   def destroy
     @deck = Deck.find(params[:id])
     @deck.destroy
@@ -79,5 +65,9 @@ class DecksController < ApplicationController
       format.html { redirect_to(decks_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def game
+    render :text => "whatt"
   end
 end

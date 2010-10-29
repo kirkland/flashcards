@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Xxx::Application.load_tasks
+Flashcards::Application.load_tasks
