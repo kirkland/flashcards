@@ -1,4 +1,6 @@
 class DecksController < ApplicationController
+  before_filter :find_deck, :only => [:game]
+
   def index
     @decks = Deck.all
 
@@ -26,6 +28,7 @@ class DecksController < ApplicationController
     end
   end
 
+  def edit
     @deck = Deck.find(params[:id])
   end
 
@@ -68,6 +71,12 @@ class DecksController < ApplicationController
   end
 
   def game
-    render :text => "whatt"
+    render :text => @deck.title and return
+  end
+
+  private
+
+  def find_deck
+    @deck = Deck.find(params[:id])
   end
 end
