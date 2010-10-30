@@ -10,5 +10,11 @@ class DeckTest < ActiveSupport::TestCase
   test "new deck should reject malformed card text" do
     d = Deck.create(:title => "some title", :bulk_cards => "one|two\nthree four") # note: would need a '|'
     assert !d.valid?
+    d = Deck.create(:title => "some title", :bulk_cards => "some text")
+    assert !d.valid?
+    d = Deck.create(:title => "some title", :bulk_cards => "missing the back|")
+    assert !d.valid?
+    d = Deck.create(:title => "some title", :bulk_cards => "|missing the front")
+    assert !d.valid?
   end
 end
