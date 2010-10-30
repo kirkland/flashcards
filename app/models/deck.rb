@@ -2,7 +2,7 @@ class Deck < ActiveRecord::Base
   has_many :cards
   accepts_nested_attributes_for :cards
 
-  validates_format_of :bulk_cards, :with => /\A(.+\|.+\n?){0,}\z/
+  validates_format_of :bulk_cards, :with => /\A(.+\|.+\n?){1,}\z/, :on => :create
           
   def bulk_cards
     @bulk_cards || ""
