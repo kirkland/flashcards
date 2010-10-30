@@ -12,9 +12,17 @@
     %br/
     = f.text_field :title
   .field
-    =f.fields_for :cards do |cf|
-      = cf.text_field :front
-      = cf.text_field :back
-      %br/
+    -if @deck.new_record?
+      .field
+        =f.fields_for :cards do |cf|
+          = cf.text_field :front
+          = cf.text_field :back
+          %br/
+    -else
+      .field
+        =f.fields_for :cards do |cf|
+          = cf.text_field :front
+          = cf.text_field :back
+          %br/
   .actions
     = f.submit
