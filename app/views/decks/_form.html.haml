@@ -12,10 +12,9 @@
     %br/
     = f.text_field :title
   .field
-    -@deck.cards.each do |card|
-      =f.fields_for card do |cf|
-        = cf.text_field :front
-        = cf.text_field :back
-        %br/
+    =f.fields_for :cards do |cf|
+      = cf.text_field :front
+      = cf.text_field :back
+      %br/
   .actions
     = f.submit
