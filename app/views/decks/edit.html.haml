@@ -1,3 +1,4 @@
+%h1 Editing deck
 - form_for @deck do |f|
   - if @deck.errors.any?
     #error_explanation
@@ -26,3 +27,6 @@
           %br/
   .actions
     = f.submit
+= link_to 'Show', @deck
+|
+\#{link_to 'Back', decks_path}
