@@ -1,0 +1,14 @@
+%p#notice= notice
+%p
+  %b Title:
+  = @deck.title
+
+%table.deck-card-table
+  -@deck.cards.each do |card|
+    %tr
+      %td=card.front
+      %td=card.back
+
+= link_to 'Edit', edit_deck_path(@deck)
+|
+\#{link_to 'Back', decks_path}
