@@ -5,4 +5,6 @@ Flashcards::Application.routes.draw do
       get :game
     end
   end
+
+  root :to => 'decks#index'
 end
