@@ -1,3 +1,4 @@
+%h1 New deck
 %h1 Editing deck
 - form_for @deck do |f|
   - if @deck.errors.any?
@@ -12,13 +13,11 @@
     = f.label :title
     %br/
     = f.text_field :title
-  .field
-    =f.fields_for :cards do |cf|
-      = cf.text_field :front
-      = cf.text_field :back
-      %br/
+    %br/
+    = f.label "Enter one card per row, and separate front and back by a '|' (pipe) character."
+    %br/
+    = f.text_area :bulk_cards
+    %br/
   .actions
     = f.submit
-= link_to 'Show', @deck
-|
-\#{link_to 'Back', decks_path}
+= link_to 'Back', decks_path
