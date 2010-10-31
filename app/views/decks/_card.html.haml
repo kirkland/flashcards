@@ -1,0 +1,7 @@
+.cards_fields
+  =fields_for "deck[card_attributes][]", card do |cf|
+    = cf.text_field :front, :index => nil
+    = cf.text_field :back, :index => nil
+    - if !card.new_record?
+      = cf.hidden_field :id, :index => nil
+    %br/

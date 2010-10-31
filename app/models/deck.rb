@@ -16,4 +16,15 @@ class Deck < ActiveRecord::Base
       Card.create(:deck => self, :front => front, :back => back)
     end
   end
+
+  def card_attributes=(card_attributes)
+    card_attributes.each do |attributes|
+      if attributes[:id].blank?
+        cards.build(attributes)
+      else
+        card = cards.detect {|t| t.id == attributes[:id].to_i }
+        card.attributes = attributes
+      end
+    end
+  end
 end
