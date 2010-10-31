@@ -1,7 +1,11 @@
-.cards_fields
+.card
   =fields_for "deck[card_attributes][]", card do |cf|
     = cf.text_field :front, :index => nil
     = cf.text_field :back, :index => nil
-    - if !card.new_record?
+    - if card.new_record?
+      = link_to_function "remove", "this.up('.card').remove()"
+    - else
+      = link_to_function "remove", "mark_for_destroy(this)"
       = cf.hidden_field :id, :index => nil
+      = cf.hidden_field :should_destroy, :index => nil, :class => 'should_destroy'
     %br/

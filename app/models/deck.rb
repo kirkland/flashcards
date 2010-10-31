@@ -1,6 +1,7 @@
 class Deck < ActiveRecord::Base
   has_many :cards
-  accepts_nested_attributes_for :cards
+  after_update :save_cards
+  validates_associated :cards
 
   validates_format_of :bulk_cards, :with => /\A(.+\|.+\n?){1,}\z/, :on => :create
           
@@ -24,6 +25,16 @@ class Deck < ActiveRecord::Base
       else
         card = cards.detect {|t| t.id == attributes[:id].to_i }
         card.attributes = attributes
+      end
+    end
+  end
+
+  def save_cards
+    cards.each do |c|
+      if c.should_destroy?
+        c.destroy
+      else
+        c.save(false)
       end
     end
   end
