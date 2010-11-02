@@ -7,7 +7,11 @@ Flashcards::Application.routes.draw do
     end
   end
 
-  resources :quiz, :only => [:index, :new]
+  resources :quiz, :only => [:index, :new] do
+    collection do
+      get :play
+    end
+  end
 
-  root :to => 'decks#index'
+  root :to => 'quiz#index'
 end
