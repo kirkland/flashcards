@@ -1,0 +1,2 @@
+- @decks.each do |deck|
+  %p= link_to deck.title, new_quiz_path(:deck_id => deck.id)
