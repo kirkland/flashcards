@@ -21,3 +21,14 @@ h1 {
   border-style: solid;
   border-width: 1px;
   padding: 5px; }
+
+.inline {
+  display: inline; }
+
+.card {
+  min-height: 100px;
+  margin-top: 10px; }
+
+.card_value {
+  margin-left: 20px;
+  font-size: 20px; }

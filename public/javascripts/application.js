@@ -8,6 +8,7 @@ function revealBack(request_path) {
     method: 'GET',
     onSuccess: function(response) {
       $('card_back_value').update(response.responseText);
+      $('reveal_back_link').hide();
     }
   });
 }
@@ -22,6 +23,7 @@ function nextCard(request_path) {
       } else {
         $('card_front_value').update(text);
         $('card_back_value').update("");
+        $('reveal_back_link').show();
       }
     }
   });

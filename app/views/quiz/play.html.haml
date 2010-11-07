@@ -1,12 +1,13 @@
 %body{ :onload => "nextCard('#{next_card_quiz_path(@quiz.id)}')" }
 #game_nav
-  = link_to_function "Reveal Back", "revealBack('#{card_back_quiz_path(@quiz.id)}')"
-  |
+  #reveal_back_link{:class => "inline"}
+    = link_to_function "Reveal Back", "revealBack('#{card_back_quiz_path(@quiz.id)}')"
+    |
   = link_to_function "Next Card", "nextCard('#{next_card_quiz_path(@quiz.id)}')"
-%p
+#card_front.card
   Front: 
-  #card_front_value
-%p
+  #card_front_value.card_value
+#card_back.card
   Back:
-  #card_back_value
+  #card_back_value.card_value
 %p= link_to 'Back to Decks', quiz_index_path
