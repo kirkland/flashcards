@@ -4,8 +4,9 @@ Flashcards::Application.routes.draw do
   resources :decks
 
   resources :quiz, :only => [:index, :new] do
-    collection do
+    member do
       get :play
+      get :card_back
     end
   end
 

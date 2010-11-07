@@ -1,4 +1,6 @@
 class QuizController < ApplicationController
+  before_filter :find_quiz, :except => [:index, :new]
+
   def index
     @decks = Deck.all
   end
@@ -8,14 +10,24 @@ class QuizController < ApplicationController
     @quiz = Quiz.create(:deck => @deck, :game_data => {:cards_remaining => @deck.cards.collect{|c| c.id.inspect}.shuffle})
     session[:quiz_id] = @quiz.id
 
-    redirect_to :action => :play
+    redirect_to :action => :play, :id => @quiz.id
   end
 
   def play
-    @quiz = Quiz.find(session[:quiz_id])
     available_cards = @quiz.game_data[:cards_remaining]
     redirect_to :action => :index and return if available_cards.empty?
     @card = Card.find(available_cards.pop)
+    session[:card_id] = @card.id
     @quiz.save
+  end
+
+  def card_back
+    render :text => Card.find(session[:card_id]).back
+  end
+
+  private
+
+  def find_quiz
+    @quiz = Quiz.find(session[:quiz_id])
   end
 end

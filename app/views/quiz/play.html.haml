@@ -1,0 +1,5 @@
+%p
+  Front: 
+  = @card.front
+#card_back
+%p= link_to_function "Reveal Back", "revealBack('#{card_back_quiz_path(@quiz.id)}')"
