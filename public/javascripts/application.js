@@ -16,8 +16,13 @@ function nextCard(request_path) {
   new Ajax.Request(request_path, {
     method: 'POST',
     onSuccess: function(response) {
-      $('card_front_value').update(response.responseText);
-      $('card_back_value').update("");
+      var text = response.responseText;
+      if(text == "no more cards") {
+        $('game_nav').update("Game Over");
+      } else {
+        $('card_front_value').update(text);
+        $('card_back_value').update("");
+      }
     }
   });
 }

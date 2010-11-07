@@ -22,10 +22,14 @@ class QuizController < ApplicationController
 
   def next_card
     available_cards = @quiz.game_data[:cards_remaining]
-    @card = Card.find(available_cards.pop)
-    session[:card_id] = @card.id
-    @quiz.save
-    render :text => available_cards.empty? ? "no more cards" : @card.front
+    if available_cards.empty?
+      render :text => "no more cards" and return
+    else
+      @card = Card.find(available_cards.pop)
+      session[:card_id] = @card.id
+      @quiz.save
+      render :text => @card.front and return
+    end
   end
 
   private
