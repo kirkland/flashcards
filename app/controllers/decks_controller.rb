@@ -1,6 +1,4 @@
 class DecksController < ApplicationController
-  before_filter :find_deck, :only => [:game]
-
   def index
     @decks = Deck.all
 
@@ -68,9 +66,6 @@ class DecksController < ApplicationController
       format.html { redirect_to(decks_url) }
       format.xml  { head :ok }
     end
-  end
-
-  def game
   end
 
   private

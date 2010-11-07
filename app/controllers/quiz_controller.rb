@@ -17,7 +17,5 @@ class QuizController < ApplicationController
     redirect_to :action => :index and return if available_cards.empty?
     @card = Card.find(available_cards.pop)
     @quiz.save
-
-    render :text => @card.front
   end
 end
