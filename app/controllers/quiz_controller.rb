@@ -14,11 +14,6 @@ class QuizController < ApplicationController
   end
 
   def play
-    available_cards = @quiz.game_data[:cards_remaining]
-    redirect_to :action => :index and return if available_cards.empty?
-    @card = Card.find(available_cards.pop)
-    session[:card_id] = @card.id
-    @quiz.save
   end
 
   def card_back
@@ -36,6 +31,6 @@ class QuizController < ApplicationController
   private
 
   def find_quiz
-    @quiz = Quiz.find(session[:quiz_id])
+    @quiz = Quiz.find(params[:id])
   end
 end
