@@ -7,6 +7,7 @@ Flashcards::Application.routes.draw do
     member do
       get :play
       get :card_back
+      post :next_card
     end
   end
 
