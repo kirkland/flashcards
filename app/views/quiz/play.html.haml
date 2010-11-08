@@ -4,10 +4,8 @@
     = link_to_function "Reveal Back", "revealBack('#{card_back_quiz_path(@quiz.id)}')"
     |
   = link_to_function "Next Card", "nextCard('#{next_card_quiz_path(@quiz.id)}')"
-#card_front.card
-  Front: 
+#card_front{:class => "card"}
   #card_front_value.card_value
-#card_back.card
-  Back:
+#card_back{:class => "card"}
   #card_back_value.card_value
 %p= link_to 'Back to Decks', quiz_index_path

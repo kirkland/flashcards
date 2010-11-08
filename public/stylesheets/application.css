@@ -26,9 +26,13 @@ h1 {
   display: inline; }
 
 .card {
-  min-height: 100px;
-  margin-top: 10px; }
+  width: 450px;
+  float: left;
+  margin-left: 20px;
+  font-size: 20px;
+  border: 1px solid black; }
 
 .card_value {
-  margin-left: 20px;
-  font-size: 20px; }
+  min-height: 100px;
+  text-align: center;
+  margin: 10px; }
