@@ -9,6 +9,7 @@ function revealBack(request_path) {
     onSuccess: function(response) {
       $('card_back_value').update(response.responseText);
       $('reveal_back_link').hide();
+      $('card_back').addClassName("solid-border").removeClassName("dashed-border");
     }
   });
 }
@@ -24,6 +25,7 @@ function nextCard(request_path) {
         $('card_front_value').update(text);
         $('card_back_value').update("");
         $('reveal_back_link').show();
+        $('card_back').addClassName("dashed-border").removeClassName("solid-border");
       }
     }
   });

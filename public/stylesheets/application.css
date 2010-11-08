@@ -38,3 +38,9 @@ h1 {
   min-height: 100px;
   text-align: center;
   margin: 10px; }
+
+.solid-border {
+  border-style: solid !important; }
+
+.dashed-border {
+  border-style: dashed !important; }
