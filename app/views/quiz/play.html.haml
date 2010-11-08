@@ -9,3 +9,5 @@
 #card_back{:class => "card"}
   #card_back_value.card_value
 %p= link_to 'Back to Decks', quiz_index_path
+- content_for :js do
+  makeNextLink("#{card_back_quiz_path(@quiz.id)}");

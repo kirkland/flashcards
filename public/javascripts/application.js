@@ -28,3 +28,7 @@ function nextCard(request_path) {
     }
   });
 }
+
+function makeNextLink(link) {
+  $("card_front").observe('click', function() {revealBack(link)});
+}
