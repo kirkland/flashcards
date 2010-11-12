@@ -3,7 +3,7 @@ function mark_for_destroy(element) {
   $(element).up('.card').hide();
 }
 
-function revealBack(request_path) {
+function reveal_back(request_path) {
   new Ajax.Request(request_path, {
     method: 'GET',
     onSuccess: function(response) {
@@ -14,7 +14,7 @@ function revealBack(request_path) {
   });
 }
 
-function nextCard(request_path) {
+function next_card(request_path) {
   new Ajax.Request(request_path, {
     method: 'POST',
     onSuccess: function(response) {
@@ -31,10 +31,19 @@ function nextCard(request_path) {
   });
 }
 
+// move the game along, either revealing the back or going to next card
+function game_next() {
+  if ($('card_back').hasClassName("dashed-border")) {
+    reveal_back();
+  } else {
+    next_card();
+  }
+}
+
 function setupQuiz(options) {
-  $("card_front").observe('click', function() {revealBack(options.back_path)});
-  $("card_back").observe('click', function() {nextCard(options.next_path)});
-  nextCard(options.next_path);
+  $("card_front").observe('click', function() {reveal_back(options.back_path)});
+  $("card_back").observe('click', function() {next_card(options.next_path)});
+  next_card(options.next_path);
 }
 
 function adjust_font(amount) {
