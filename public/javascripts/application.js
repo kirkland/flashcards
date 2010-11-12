@@ -31,6 +31,7 @@ function nextCard(request_path) {
   });
 }
 
-function makeNextLink(link) {
-  $("card_front").observe('click', function() {revealBack(link)});
+function setupQuiz(options) {
+  $("card_front").observe('click', function() {revealBack(options.back_path)});
+  $("card_back").observe('click', function() {nextCard(options.next_path)});
 }
