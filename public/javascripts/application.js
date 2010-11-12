@@ -35,3 +35,13 @@ function setupQuiz(options) {
   $("card_front").observe('click', function() {revealBack(options.back_path)});
   $("card_back").observe('click', function() {nextCard(options.next_path)});
 }
+
+function bigger(id) {
+  start_size = parseInt($(id).getStyle('font-size'));
+  $(id).setStyle({fontSize: "" + (start_size + 2) + "px"});
+}
+
+function smaller(id) {
+  start_size = parseInt($(id).getStyle('font-size'));
+  $(id).setStyle({fontSize: "" + (start_size - 2) + "px"});
+}

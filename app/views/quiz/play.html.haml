@@ -4,6 +4,10 @@
     = link_to_function "Reveal Back", "revealBack('#{card_back_quiz_path(@quiz.id)}')"
     |
   = link_to_function "Next Card", "nextCard('#{next_card_quiz_path(@quiz.id)}')"
+#font-adjuster
+  =link_to_function "Bigger", "bigger('card_front_value')"
+  |
+  =link_to_function "Smaller", "smaller('card_front_value')"
 #card_front{:class => "card"}
   #card_front_value.card_value
 #card_back{:class => "card"}
