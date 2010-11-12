@@ -1,4 +1,3 @@
-%body{ :onload => "nextCard('#{next_card_quiz_path(@quiz.id)}')" }
 #game_nav
   #reveal_back_link{:class => "inline"}
     = link_to_function "Reveal Back", "revealBack('#{card_back_quiz_path(@quiz.id)}')"

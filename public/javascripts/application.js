@@ -34,6 +34,7 @@ function nextCard(request_path) {
 function setupQuiz(options) {
   $("card_front").observe('click', function() {revealBack(options.back_path)});
   $("card_back").observe('click', function() {nextCard(options.next_path)});
+  nextCard(options.next_path);
 }
 
 function bigger(id) {
