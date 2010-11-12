@@ -5,9 +5,11 @@
     |
   = link_to_function "Next Card", "nextCard('#{next_card_quiz_path(@quiz.id)}')"
 #font-adjuster
-  =link_to_function "Bigger", "bigger('card_front_value')"
-  |
-  =link_to_function "Smaller", "smaller('card_front_value')"
+  %p 
+    Text Size:
+    =link_to_function "Bigger", "adjust_font(5)"
+    |
+    =link_to_function "Smaller", "adjust_font(-5)"
 #card_front{:class => "card"}
   #card_front_value.card_value
 #card_back{:class => "card"}

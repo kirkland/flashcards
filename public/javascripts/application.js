@@ -45,3 +45,10 @@ function smaller(id) {
   start_size = parseInt($(id).getStyle('font-size'));
   $(id).setStyle({fontSize: "" + (start_size - 2) + "px"});
 }
+
+function adjust_font(amount) {
+  start_size = parseInt($("card_front_value").getStyle('font-size'));
+  $("card_front_value").setStyle({fontSize: "" + (start_size + amount) + "px"});
+  $("card_back_value").setStyle({fontSize: "" + (start_size + amount) + "px"});
+}
+
