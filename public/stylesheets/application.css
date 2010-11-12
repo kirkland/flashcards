@@ -26,16 +26,15 @@ h1 {
   display: inline; }
 
 .card {
-  width: 450px;
-  float: left;
-  margin-left: 20px;
+  width: 800px;
+  margin-left: 65px;
   font-size: 20px;
   border: 1px solid black;
   margin-top: 20px;
   margin-bottom: 20px; }
 
 .card_value {
-  min-height: 100px;
+  min-height: 200px;
   text-align: center;
   margin: 10px; }
 
