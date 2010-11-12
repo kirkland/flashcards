@@ -9,27 +9,29 @@ Quiz = Class.create({
   },
 
   reveal_back: function() {
+    console.log("show back");
     new Ajax.Request(this.back_path, {
       method: 'GET',
       onSuccess: function(response) {
         $('card_back_value').update(response.responseText);
-        $('reveal_back_link').hide();
         $('card_back').addClassName("solid-border").removeClassName("dashed-border");
       }
     });
   },
 
   next_card: function() {
+    console.log("next");
     new Ajax.Request(this.next_path, {
       method: 'POST',
       onSuccess: function(response) {
         var text = response.responseText;
         if(text == "no more cards") {
-          $('game_nav').update("Game Over");
+          console.log("game over");
+          $('notice').update("Game Over");
         } else {
+          console.log("good");
           $('card_front_value').update(text);
           $('card_back_value').update("");
-          $('reveal_back_link').show();
           $('card_back').addClassName("dashed-border").removeClassName("solid-border");
         }
       }
