@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag 'prototype', 'scriptaculous', 'application' %>
   <%= javascript_include_tag 'jquery-1.4.3' %>
+  <%= javascript_include_tag 'quiz' %>
   <script> var $j = jQuery.noConflict(); </script>
   <%= javascript_tag "document.observe('dom:loaded', function() { #{yield :js}; });" %>
   <%= csrf_meta_tag %>
