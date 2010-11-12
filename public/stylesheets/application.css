@@ -9,7 +9,7 @@ h1 {
   width: 960px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 30px;
   padding: 15px;
   background-color: white; }
 
@@ -31,12 +31,15 @@ h1 {
   font-size: 20px;
   border: 1px solid black;
   margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  display: table; }
 
 .card_value {
-  min-height: 200px;
+  height: 200px;
   text-align: center;
-  margin: 10px; }
+  margin: 10px;
+  display: table-cell;
+  vertical-align: middle; }
 
 .solid-border {
   border-style: solid !important; }
