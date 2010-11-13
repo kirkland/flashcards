@@ -1,4 +1,8 @@
-#notice
+#game_nav{:style => "display:none"}
+  Game Over:
+  =link_to "Back to Decks", quiz_index_path 
+  |
+  =link_to "Repeat This Deck", new_quiz_path(:deck_id => @deck_id)
 #font-adjuster
   %p 
     Text Size:

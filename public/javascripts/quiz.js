@@ -15,7 +15,7 @@ Quiz = Class.create({
       onSuccess: function(response) {
         var text = response.responseText;
         if(text == "no more cards") {
-          $('notice').update("Game Over");
+          this.end_game();
         } else {
           this.card_status = "hidden";
           $('card_front_value').update(text);
@@ -43,5 +43,11 @@ Quiz = Class.create({
     } else {
       this.reveal_back();
     }
+  },
+
+  end_game: function() {
+    $("card_front").stopObserving('click');
+    $("card_back").stopObserving('click');
+    $('game_nav').show();
   }
 });

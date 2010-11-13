@@ -14,6 +14,7 @@ class QuizController < ApplicationController
   end
 
   def play
+    @deck_id = Quiz.find(session[:quiz_id]).deck_id
   end
 
   def card_back
