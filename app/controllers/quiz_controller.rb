@@ -7,7 +7,8 @@ class QuizController < ApplicationController
 
   def new
     @deck = Deck.find(params[:deck_id])
-    @quiz = Quiz.create(:deck => @deck, :game_data => {:cards_remaining => @deck.cards.collect{|c| c.id.inspect}.shuffle})
+    @quiz = Quiz.create(:deck => @deck)
+    @quiz.create_quiz_cards
 
     redirect_to quiz_path(@quiz)
   end
@@ -20,14 +21,12 @@ class QuizController < ApplicationController
   end
 
   def next_card
-    available_cards = @quiz.game_data[:cards_remaining]
-    if available_cards.empty?
+    card = @quiz.next_card
+    if card == "no more cards"
       render :text => "no more cards" and return
     else
-      @card = Card.find(available_cards.pop)
-      session[:card_id] = @card.id
-      @quiz.save
-      render :text => @card.front and return
+      session[:card_id] = card.id
+      render :text => card.front and return
     end
   end
 
