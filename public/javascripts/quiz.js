@@ -9,17 +9,6 @@ Quiz = Class.create({
     this.next_card();
   },
 
-  reveal_back: function() {
-    new Ajax.Request(this.back_path, {
-      method: 'GET',
-      onSuccess: function(response) {
-        this.card_status = "revealed";
-        $('card_back_value').update(response.responseText);
-        $('card_back').addClassName("solid-border").removeClassName("dashed-border");
-      }.bind(this)
-    });
-  },
-
   next_card: function() {
     new Ajax.Request(this.next_path, {
       method: 'POST',
@@ -33,6 +22,17 @@ Quiz = Class.create({
           $('card_back_value').update("");
           $('card_back').addClassName("dashed-border").removeClassName("solid-border");
         }
+      }.bind(this)
+    });
+  },
+
+  reveal_back: function() {
+    new Ajax.Request(this.back_path, {
+      method: 'GET',
+      onSuccess: function(response) {
+        this.card_status = "revealed";
+        $('card_back_value').update(response.responseText);
+        $('card_back').addClassName("solid-border").removeClassName("dashed-border");
       }.bind(this)
     });
   },
