@@ -8,13 +8,11 @@ class QuizController < ApplicationController
   def new
     @deck = Deck.find(params[:deck_id])
     @quiz = Quiz.create(:deck => @deck, :game_data => {:cards_remaining => @deck.cards.collect{|c| c.id.inspect}.shuffle})
-    session[:quiz_id] = @quiz.id
 
-    redirect_to :action => :play, :id => @quiz.id
+    redirect_to quiz_path(@quiz)
   end
 
-  def play
-    @deck_id = Quiz.find(session[:quiz_id]).deck_id
+  def show
   end
 
   def card_back

@@ -3,7 +3,7 @@ Flashcards::Application.routes.draw do
 
   resources :decks
 
-  resources :quiz, :only => [:index, :new] do
+  resources :quiz, :only => [:index, :new, :show] do
     member do
       get :play
       get :card_back
