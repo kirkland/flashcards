@@ -51,11 +51,15 @@ h1 {
 
 #quiz_nav {
   margin-left: 380px; }
-  #quiz_nav #reveal_card_link {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    width: 200px;
-    height: 100px; }
-    #quiz_nav #reveal_card_link:hover {
-      background-color: #e0f8f7; }
+
+#reveal_card_link a, #correct_links a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 200px;
+  height: 100px; }
+  #reveal_card_link a:hover, #correct_links a:hover {
+    background-color: #e0f8f7; }
+
+#correct_links {
+  margin-left: 280px; }
