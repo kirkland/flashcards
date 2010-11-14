@@ -7,9 +7,10 @@ Quiz = Class.create({
     this.next_card();
   },
 
-  next_card: function() {
+  next_card: function(answer_result) {
     new Ajax.Request(this.next_path, {
       method: 'POST',
+      parameters: {correct: answer_result},
       onSuccess: function(response) {
         var text = response.responseText;
         if(text == "no more cards") {
@@ -53,12 +54,12 @@ Quiz = Class.create({
   answered_correctly: function() {
     $('reveal_card_link').show();
     $('correct_links_area').hide();
-    this.next_card();
+    this.next_card("correct");
   },
 
   answered_wrong: function() {
     $('reveal_card_link').show();
     $('correct_links_area').hide();
-    this.next_card();
+    this.next_card("incorrect");
   }
 });

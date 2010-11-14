@@ -8,7 +8,7 @@ class Quiz < ActiveRecord::Base
     end
   end
   
-  def next_card
+  def next_card(answer_result)
     available_cards = quiz_cards.select{|c| c.visited == false}.shuffle
     if available_cards.empty?
       return "no more cards"
@@ -16,6 +16,7 @@ class Quiz < ActiveRecord::Base
 
     quiz_card = available_cards.pop
     quiz_card.update_attribute(:visited, true)
+    quiz_card.update_attribute(:correct, answer_result == "correct")
     quiz_card.card
   end
 end

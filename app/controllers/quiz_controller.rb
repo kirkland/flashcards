@@ -21,7 +21,7 @@ class QuizController < ApplicationController
   end
 
   def next_card
-    card = @quiz.next_card
+    card = @quiz.next_card(params[:correct])
     if card == "no more cards"
       render :text => "no more cards" and return
     else
