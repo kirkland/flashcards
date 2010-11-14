@@ -31,7 +31,7 @@ Quiz = Class.create({
         this.card_status = "revealed";
         $('card_back_value').update(response.responseText);
         $('card_back').addClassName("solid-border").removeClassName("dashed-border");
-        $('correct_links').show();
+        $('correct_links_area').show();
         $('reveal_card_link').hide();
       }.bind(this)
     });
@@ -52,13 +52,13 @@ Quiz = Class.create({
 
   answered_correctly: function() {
     $('reveal_card_link').show();
-    $('correct_links').hide();
+    $('correct_links_area').hide();
     this.next_card();
   },
 
   answered_wrong: function() {
     $('reveal_card_link').show();
-    $('correct_links').hide();
+    $('correct_links_area').hide();
     this.next_card();
   }
 });
