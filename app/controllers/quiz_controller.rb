@@ -26,7 +26,7 @@ class QuizController < ApplicationController
       render :text => "no more cards" and return
     else
       session[:card_id] = card.id
-      render :text => card.front and return
+      render :json => {:front => card.front, :status_string => @quiz.progress_string} and return
     end
   end
 
