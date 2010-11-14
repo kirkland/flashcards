@@ -4,8 +4,6 @@ Quiz = Class.create({
     this.next_path = options.next_path;
     this.card_status = "hidden";
 
-    $("card_front").observe('click', this.quiz_next.bindAsEventListener(this));
-    $("card_back").observe('click', this.quiz_next.bindAsEventListener(this));
     this.next_card();
   },
 
@@ -33,6 +31,8 @@ Quiz = Class.create({
         this.card_status = "revealed";
         $('card_back_value').update(response.responseText);
         $('card_back').addClassName("solid-border").removeClassName("dashed-border");
+        $('correct_links').show();
+        $('reveal_card_link').hide();
       }.bind(this)
     });
   },
@@ -46,8 +46,19 @@ Quiz = Class.create({
   },
 
   end_game: function() {
-    $("card_front").stopObserving('click');
-    $("card_back").stopObserving('click');
-    $('game_nav').show();
+    $('quiz_nav').hide();
+    $('site_nav').show();
+  },
+
+  answered_correctly: function() {
+    $('reveal_card_link').show();
+    $('correct_links').hide();
+    this.next_card();
+  },
+
+  answered_wrong: function() {
+    $('reveal_card_link').show();
+    $('correct_links').hide();
+    this.next_card();
   }
 });

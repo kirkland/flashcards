@@ -1,4 +1,4 @@
-#game_nav{:style => "display:none"}
+#site_nav{:style => "display:none"}
   Game Over:
   =link_to "Back to Decks", quiz_index_path 
   |
@@ -9,6 +9,15 @@
     =link_to_function "Bigger", "adjust_font(5)"
     |
     =link_to_function "Smaller", "adjust_font(-5)"
+#quiz_nav
+  #reveal_card_link
+    =link_to_function "Show Back", "quiz.reveal_back()"
+  #correct_links{:style => "display:none"}
+    %p Were you correct?
+    %p
+      =link_to_function "Yes", "quiz.answered_correctly()"
+      |
+      =link_to_function "No", "quiz.answered_wrong()"
 #card_front{:class => "card"}
   #card_front_value.card_value
 #card_back{:class => "card"}
