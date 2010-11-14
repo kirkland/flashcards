@@ -13,13 +13,13 @@ Quiz = Class.create({
       parameters: {correct: answer_result},
       onSuccess: function(response) {
         var text = response.responseJSON.front;
+        $('quiz_status').update(response.responseJSON.status_string);
         if(text == "no more cards") {
           this.end_game();
         } else {
           this.card_status = "hidden";
           $('card_front_value').update(text);
           $('card_back_value').update("");
-          $('quiz_status').update(response.responseJSON.status_string);
           $('card_back').addClassName("dashed-border").removeClassName("solid-border");
         }
       }.bind(this)
@@ -49,6 +49,7 @@ Quiz = Class.create({
 
   end_game: function() {
     $('quiz_nav').hide();
+    $('correct_links_area').hide();
     $('site_nav').show();
   },
 
