@@ -13,9 +13,6 @@ class QuizController < ApplicationController
     redirect_to quiz_path(@quiz)
   end
 
-  def show
-  end
-
   def card_back
     render :text => Card.find(session[:card_id]).back
   end

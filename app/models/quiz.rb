@@ -22,9 +22,9 @@ class Quiz < ActiveRecord::Base
 
   def progress_string
     num_correct = quiz_cards.select{|x| x.correct == true}.count
-    num_answered = quiz_cards.select{|x| x.visited == true}.count - 1
+    num_answered = quiz_cards.select{|x| x.visited == true}.count
     num_remaining = quiz_cards.length - num_answered
 
-    "You have answered #{num_correct} of #{num_answered} so far. You have #{num_remaining} remaining."
+    "You have answered #{num_correct} of #{num_answered} cards correctly so far. You have #{num_remaining} remaining."
   end
 end
