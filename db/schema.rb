@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101113022702) do
+ActiveRecord::Schema.define(:version => 20101118025350) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20101113022702) do
     t.integer "card_id"
     t.boolean "visited", :default => false
     t.boolean "correct"
+    t.boolean "active",  :default => false
   end
 
   create_table "quizzes", :force => true do |t|

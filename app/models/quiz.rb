@@ -9,15 +9,19 @@ class Quiz < ActiveRecord::Base
   end
   
   def next_card(answer_result)
+    prev_card = quiz_cards.detect{|q| q.active? }
+    prev_card.update_attribute(:correct, answer_result == "correct") if prev_card.present?
+    prev_card.update_attribute(:active, false) if prev_card.present?
+    prev_card.update_attribute(:visited, true) if prev_card.present?
+
     available_cards = quiz_cards.select{|c| c.visited == false}.shuffle
     if available_cards.empty?
       return "no more cards"
     end
 
-    quiz_card = available_cards.pop
-    quiz_card.update_attribute(:visited, true)
-    quiz_card.update_attribute(:correct, answer_result == "correct")
-    quiz_card.card
+    next_card = available_cards.pop
+    next_card.update_attribute(:active, true)
+    next_card.card
   end
 
   def progress_string
