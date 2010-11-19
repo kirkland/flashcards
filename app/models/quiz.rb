@@ -29,6 +29,6 @@ class Quiz < ActiveRecord::Base
     num_answered = quiz_cards.select{|x| x.visited == true}.count
     num_remaining = quiz_cards.length - num_answered
     
-    {:num_correct => num_correct, :num_answered => num_answered, :num_remaining => num_remaining, :percent_correct => num_correct.to_f/num_answered * 100}
+    {:num_correct => num_correct, :num_answered => num_answered, :num_remaining => num_remaining, :percent_correct => num_answered == 0 ? 0 : num_correct.to_f/num_answered}
   end
 end

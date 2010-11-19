@@ -5,10 +5,12 @@ Quiz = Class.create({
     this.card_status = "hidden";
 
 
-    this.next_card();
     $('reveal_card_link').observe('click', this.reveal_back.bindAsEventListener(this));
     $('correct_answer').observe('click', this.answered_correctly.bindAsEventListener(this));
-    $('wrong_answer').observe('click', this.answered_correctly.bindAsEventListener(this));
+    $('wrong_answer').observe('click', this.answered_wrong.bindAsEventListener(this));
+
+    // begin
+    this.next_card();
   },
 
   next_card: function(answer_result) {
@@ -20,7 +22,7 @@ Quiz = Class.create({
 
         var quiz_status = response.responseJSON.quiz_status;
         $('answered_correctly_count').update(quiz_status.num_correct + "/" + quiz_status.num_answered);
-        $('percentage_correct').update(quiz_status.percent_correct);
+        $('percentage_correct').update(Math.floor("" + quiz_status.percent_correct*100) + "%");
         $('cards_remaining').update(quiz_status.num_remaining);
 
         if(text == "no more cards") {
