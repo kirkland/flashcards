@@ -20,10 +20,10 @@ class QuizController < ApplicationController
   def next_card
     card = @quiz.next_card(params[:correct])
     if card == "no more cards"
-      render :json => {:front => "no more cards", :status_string => @quiz.progress_string} and return
+      render :json => {:front => "no more cards", :quiz_status => @quiz.quiz_status} and return
     else
       session[:card_id] = card.id
-      render :json => {:front => card.front, :status_string => @quiz.progress_string} and return
+      render :json => {:front => card.front, :quiz_status => @quiz.quiz_status} and return
     end
   end
 

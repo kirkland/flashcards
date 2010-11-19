@@ -17,7 +17,12 @@ Quiz = Class.create({
       parameters: {correct: answer_result},
       onSuccess: function(response) {
         var text = response.responseJSON.front;
-        $('quiz_status').update(response.responseJSON.status_string);
+
+        var quiz_status = response.responseJSON.quiz_status;
+        $('answered_correctly_count').update(quiz_status.num_correct + "/" + quiz_status.num_answered);
+        $('percentage_correct').update(quiz_status.percent_correct);
+        $('cards_remaining').update(quiz_status.num_remaining);
+
         if(text == "no more cards") {
           this.end_game();
         } else {

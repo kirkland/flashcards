@@ -24,11 +24,11 @@ class Quiz < ActiveRecord::Base
     next_card.card
   end
 
-  def progress_string
+  def quiz_status
     num_correct = quiz_cards.select{|x| x.correct == true}.count
     num_answered = quiz_cards.select{|x| x.visited == true}.count
     num_remaining = quiz_cards.length - num_answered
-
-    "You have answered #{num_correct} of #{num_answered} cards correctly so far. You have #{num_remaining} remaining."
+    
+    {:num_correct => num_correct, :num_answered => num_answered, :num_remaining => num_remaining, :percent_correct => num_correct.to_f/num_answered * 100}
   end
 end

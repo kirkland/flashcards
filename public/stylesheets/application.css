@@ -75,24 +75,24 @@ h1 {
   .big_button:hover {
     background-color: #e0f8f7; }
 
-#new_quiz_status {
+#quiz_status {
   margin-top: 20px;
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
   width: 800px;
   height: 100px; }
-  #new_quiz_status .status_box {
+  #quiz_status .status_box {
     height: 100px;
     line-height: 100px;
     text-align: center;
     font-size: 40px; }
-  #new_quiz_status p {
+  #quiz_status p {
     font-size: 12px;
     margin-top: 0px;
     margin-bottom: 0px;
     text-align: center; }
-  #new_quiz_status div {
+  #quiz_status div {
     width: 158px;
     float: left; }
 
