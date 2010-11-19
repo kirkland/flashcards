@@ -9,8 +9,29 @@
     =link_to_function "Bigger", "adjust_font(5)"
     |
     =link_to_function "Smaller", "adjust_font(-5)"
+
+
 #quiz_status
   Good Luck!
+
+#new_quiz_status
+  %div
+    %p Correct
+    #answered_correctly_count.status_box
+      7/10
+  %div
+    %p
+    #answered_total_count.status_box
+  %div
+    %p % Correct
+    #percentage_correct.status_box
+      70%
+  %div
+    .status_box
+  %div
+    %p Remaining
+    #cards_remaining.status_box
+      15 
 
 #quiz_nav
   #reveal_card_link
