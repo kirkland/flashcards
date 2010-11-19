@@ -30,7 +30,8 @@ Quiz = Class.create({
     });
   },
 
-  reveal_back: function() {
+  reveal_back: function(evt) {
+    evt.stop();
     new Ajax.Request(this.back_path, {
       method: 'GET',
       onSuccess: function(response) {
@@ -43,27 +44,21 @@ Quiz = Class.create({
     });
   },
 
-  quiz_next: function() {
-    if (this.card_status == "revealed") {
-      this.next_card();
-    } else {
-      this.reveal_back();
-    }
-  },
-
   end_game: function() {
     $('quiz_nav').hide();
     $('correct_links_area').hide();
     $('site_nav').show();
   },
 
-  answered_correctly: function() {
+  answered_correctly: function(evt) {
+    evt.stop();
     $('reveal_card_link').show();
     $('correct_links_area').hide();
     this.next_card("correct");
   },
 
-  answered_wrong: function() {
+  answered_wrong: function(evt) {
+    evt.stop();
     $('reveal_card_link').show();
     $('correct_links_area').hide();
     this.next_card("incorrect");
