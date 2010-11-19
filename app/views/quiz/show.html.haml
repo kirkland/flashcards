@@ -12,14 +12,14 @@
 #quiz_status
   Good Luck!
 
-
 #quiz_nav
   #reveal_card_link
+    %p.message 
     .big_button=link_to "Show Back", "#"
   #correct_links_area{:style => "display: none"}
+    %p.message Did you get it right?
     #correct_answer.big_button=link_to "Yes", "#"
     #wrong_answer.big_button=link_to "No", "#"
-
 
 #card_front{:class => "card"}
   #card_front_value.card_value
