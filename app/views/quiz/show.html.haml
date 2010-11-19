@@ -15,10 +15,10 @@
 
 #quiz_nav
   #reveal_card_link
-    =link_to "Show Back", "#"
-  #correct_links_area
-    .big_button=link_to "Yes", "#"
-    .big_button=link_to "No", "#"
+    .big_button=link_to "Show Back", "#"
+  #correct_links_area{:style => "display: none"}
+    #correct_answer.big_button=link_to "Yes", "#"
+    #wrong_answer.big_button=link_to "No", "#"
 
 
 #card_front{:class => "card"}
