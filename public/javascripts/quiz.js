@@ -4,7 +4,9 @@ Quiz = Class.create({
     this.next_path = options.next_path;
     this.card_status = "hidden";
 
+
     this.next_card();
+    $('reveal_card_link').observe('click', this.reveal_back.bindAsEventListener(this));
   },
 
   next_card: function(answer_result) {

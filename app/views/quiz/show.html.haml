@@ -11,15 +11,16 @@
     =link_to_function "Smaller", "adjust_font(-5)"
 #quiz_status
   Good Luck!
+
+
 #quiz_nav
   #reveal_card_link
-    =link_to_function "Show Back", "quiz.reveal_back()"
-#correct_links_area{:style => "display:none"}
-  %p{:style => "text-align: center"}  Were you correct?
-  #correct_links
-    %p
-      =link_to_function "Yes", "quiz.answered_correctly()"
-      =link_to_function "No", "quiz.answered_wrong()"
+    =link_to "Show Back", "#"
+  #correct_links_area
+    .big_button=link_to "Yes", "#"
+    .big_button=link_to "No", "#"
+
+
 #card_front{:class => "card"}
   #card_front_value.card_value
 #card_back{:class => "card"}
