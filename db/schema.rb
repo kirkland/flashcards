@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101118025350) do
+ActiveRecord::Schema.define(:version => 20101120234459) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20101118025350) do
     t.boolean "correct"
     t.boolean "active",  :default => false
   end
+
+  add_index "quiz_cards", ["quiz_id"], :name => "index_quiz_cards_on_quiz_id"
 
   create_table "quizzes", :force => true do |t|
     t.integer  "deck_id"
