@@ -14,7 +14,7 @@ class Quiz < ActiveRecord::Base
     prev_card.update_attribute(:active, false) if prev_card.present?
     prev_card.update_attribute(:visited, true) if prev_card.present?
 
-    available_cards = quiz_cards.select{|c| c.visited == false}
+    available_cards = quiz_cards.not_visited
     if available_cards.empty?
       return "no more cards"
     end
@@ -25,8 +25,8 @@ class Quiz < ActiveRecord::Base
   end
 
   def quiz_status
-    num_correct = quiz_cards.select{|x| x.correct == true}.count
-    num_answered = quiz_cards.select{|x| x.visited == true}.count
+    num_correct = quiz_cards.correct.count
+    num_answered = quiz_cards.visited.count
     num_remaining = quiz_cards.length - num_answered
     
     {:num_correct => num_correct, :num_answered => num_answered, :num_remaining => num_remaining, :percent_correct => num_answered == 0 ? 0 : num_correct.to_f/num_answered}
