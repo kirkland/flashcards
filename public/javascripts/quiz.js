@@ -13,7 +13,11 @@ Quiz = Class.create({
     this.next_card();
   },
 
-  next_card: function(answer_result) {
+  next_card: function(evt, answer_result) {
+    evt.stop();
+    $('correct_links_area').hide();
+    $('processing').show();
+
     new Ajax.Request(this.next_path, {
       method: 'POST',
       parameters: {correct: answer_result},
@@ -33,20 +37,24 @@ Quiz = Class.create({
           $('card_back_value').update("");
           $('card_back').addClassName("dashed-border").removeClassName("solid-border");
         }
+        $('reveal_card_link').show();
+        $('processing').hide();
       }.bind(this)
     });
   },
 
   reveal_back: function(evt) {
     evt.stop();
+    $('reveal_card_link').hide();
+    $('processing').show();
     new Ajax.Request(this.back_path, {
       method: 'GET',
       onSuccess: function(response) {
         this.card_status = "revealed";
         $('card_back_value').update(response.responseText);
         $('card_back').addClassName("solid-border").removeClassName("dashed-border");
+        $('processing').hide();
         $('correct_links_area').show();
-        $('reveal_card_link').hide();
       }.bind(this)
     });
   },
@@ -58,16 +66,10 @@ Quiz = Class.create({
   },
 
   answered_correctly: function(evt) {
-    evt.stop();
-    $('reveal_card_link').show();
-    $('correct_links_area').hide();
-    this.next_card("correct");
+    this.next_card(evt, "correct");
   },
 
   answered_wrong: function(evt) {
-    evt.stop();
-    $('reveal_card_link').show();
-    $('correct_links_area').hide();
-    this.next_card("incorrect");
+    this.next_card(evt, "incorrect");
   }
 });
