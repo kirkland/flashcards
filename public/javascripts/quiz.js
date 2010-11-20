@@ -13,8 +13,7 @@ Quiz = Class.create({
     this.next_card();
   },
 
-  next_card: function(evt, answer_result) {
-    evt.stop();
+  next_card: function(answer_result) {
     $('correct_links_area').hide();
     $('processing').show();
 
@@ -66,10 +65,12 @@ Quiz = Class.create({
   },
 
   answered_correctly: function(evt) {
-    this.next_card(evt, "correct");
+    evt.stop();
+    this.next_card("correct");
   },
 
   answered_wrong: function(evt) {
-    this.next_card(evt, "incorrect");
+    evt.stop();
+    this.next_card("incorrect");
   }
 });
