@@ -14,12 +14,12 @@ class Quiz < ActiveRecord::Base
     prev_card.update_attribute(:active, false) if prev_card.present?
     prev_card.update_attribute(:visited, true) if prev_card.present?
 
-    available_cards = quiz_cards.select{|c| c.visited == false}.shuffle
+    available_cards = quiz_cards.select{|c| c.visited == false}
     if available_cards.empty?
       return "no more cards"
     end
 
-    next_card = available_cards.pop
+    next_card = available_cards.sample
     next_card.update_attribute(:active, true)
     next_card.card
   end
