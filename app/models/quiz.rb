@@ -2,7 +2,7 @@ class Quiz < ActiveRecord::Base
   belongs_to :deck
   has_many :quiz_cards
 
-  def create_quiz_cards
+  def start_quiz
     deck.cards.each do |c|
       QuizCard.create(:quiz_id => id, :card_id => c.id, :visited => false)
     end

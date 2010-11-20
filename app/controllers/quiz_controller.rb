@@ -8,7 +8,7 @@ class QuizController < ApplicationController
   def new
     @deck = Deck.find(params[:deck_id])
     @quiz = Quiz.create(:deck => @deck)
-    @quiz.create_quiz_cards
+    @quiz.start_quiz
 
     redirect_to quiz_path(@quiz)
   end
