@@ -3,7 +3,7 @@ Flashcards::Application.routes.draw do
 
   get "users/edit"
 
-  resources :users, :only => [:new, :edit]
+  resources :users
 
   resources :cards
 
