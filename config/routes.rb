@@ -1,4 +1,10 @@
 Flashcards::Application.routes.draw do
+  get "users/new"
+
+  get "users/edit"
+
+  resources :users, :only => [:new, :edit]
+
   resources :cards
 
   resources :decks
