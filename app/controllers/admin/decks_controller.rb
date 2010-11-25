@@ -1,11 +1,6 @@
-class DecksController < ApplicationController
+class Admin::DecksController < Admin::ApplicationController
   def index
     @decks = Deck.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @decks }
-    end
   end
 
   def show
@@ -49,7 +44,7 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       if @deck.update_attributes(params[:deck])
-        format.html { redirect_to(@deck, :notice => 'Deck was successfully updated.') }
+        format.html { redirect_to(:action => 'show', :notice => 'Deck was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -63,7 +58,7 @@ class DecksController < ApplicationController
     @deck.destroy
 
     respond_to do |format|
-      format.html { redirect_to(decks_url) }
+      format.html { redirect_to(admin_decks_url) }
       format.xml  { head :ok }
     end
   end

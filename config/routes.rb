@@ -12,8 +12,6 @@ Flashcards::Application.routes.draw do
 
   resources :cards
 
-  resources :decks
-
   resources :quiz, :only => [:index, :new, :show] do
     member do
       get :play
@@ -23,4 +21,8 @@ Flashcards::Application.routes.draw do
   end
 
   root :to => 'quiz#index'
+
+  namespace :admin do
+    resources :decks
+  end
 end
