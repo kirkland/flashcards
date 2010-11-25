@@ -1,5 +1,6 @@
 class Quiz < ActiveRecord::Base
   belongs_to :deck
+  belongs_to :user
   has_many :quiz_cards
 
   def start_quiz
