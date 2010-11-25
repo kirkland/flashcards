@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :find_user
   def new
     @user = User.new
   end
@@ -27,5 +28,15 @@ class UsersController < ApplicationController
       flash[:error] = @user.errors
       render :action => 'edit'
     end
+  end
+
+  def profile
+    @quizzes = @user.quizzes
+  end
+
+  private
+
+  def find_user
+    @user = current_user
   end
 end

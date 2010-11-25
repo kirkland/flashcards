@@ -1,0 +1,11 @@
+%h1= @user.username
+
+- @quizzes.each do |q|
+  %p 
+    %p=q.created_at
+    =q.deck.title
+    \: Got 
+    =q.quiz_cards.correct.count
+    out of
+    =q.quiz_cards.count
+

@@ -23,7 +23,7 @@
           = flash[:notice]
       #site_nav
         - if current_user
-          =link_to "Edit Profile", edit_user_path(:current)
+          =link_to "My Profile", profile_user_path(:current)
           |
           =link_to "Logout", logout_path
         - else

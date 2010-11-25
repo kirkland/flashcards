@@ -1,7 +1,13 @@
 Flashcards::Application.routes.draw do
-  resources :users
+  resources :users do
+    member do
+      get :profile
+    end
+  end
+
   get "login" => "user_sessions#new"
   get "logout" => "user_sessions#destroy"
+
   resources :user_sessions
 
   resources :cards
