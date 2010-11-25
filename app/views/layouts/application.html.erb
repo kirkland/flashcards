@@ -15,7 +15,13 @@
 
 <% if flash[:error].present? %>
 <div id="flash-error">
-  <%= flash[:error] %>
+  <ul>
+  <% flash[:error].each do |e| %>
+    <li>
+      <%= e %>
+    </li>
+  <% end %>
+  </ul>
 </div>
 <% end %>
 

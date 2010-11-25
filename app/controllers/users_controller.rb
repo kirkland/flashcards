@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Registration successful."  
       redirect_to root_url  
     else  
+      flash[:error] = @user.errors
       render :action => 'new'  
     end  
   end
