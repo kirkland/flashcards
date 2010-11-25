@@ -22,6 +22,8 @@
         #flash-notice
           = flash[:notice]
       #site_nav
+        =link_to "Home", root_path
+        |
         - if current_user
           =link_to "My Profile", profile_user_path(:current)
           |
