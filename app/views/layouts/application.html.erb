@@ -12,6 +12,19 @@
 </head>
 <body>
 <div id="main">
+
+<% if flash[:error].present? %>
+<div id="flash-error">
+  <%= flash[:error] %>
+</div>
+<% end %>
+
+<% if flash[:notice].present? %>
+<div id="flash-notice">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
 <div id="site_nav">
   <%= link_to "Register", new_user_path %> |
   <%= link_to "Log In", login_path %>
