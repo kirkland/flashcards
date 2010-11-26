@@ -3,7 +3,7 @@
 - @quizzes.each do |q|
   %p 
     %p=q.created_at
-    =q.deck.title
+    =q.deck.present? ? q.deck.title : "Deck #{q.deck_id} Deleted"
     \: Got 
     =q.quiz_cards.correct.count
     out of
