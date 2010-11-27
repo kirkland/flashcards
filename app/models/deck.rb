@@ -39,4 +39,14 @@ class Deck < ActiveRecord::Base
       end
     end
   end
+
+  def front_description
+    return attributes[:front_description] if attributes[:front_description].present?
+    "Front"
+  end
+
+  def back_description
+    return attributes[:back_description] if attributes[:back_description].present?
+    "Back"
+  end
 end

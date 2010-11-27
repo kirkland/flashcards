@@ -1,2 +1,10 @@
 - @decks.each do |deck|
   %p= link_to deck.title, new_quiz_path(:deck_id => deck.id)
+
+- @decks.each do |deck|
+  %p="#{deck.title} (Front: #{deck.front_description}, Back: #{deck.back_description})"
+  %ul
+    %li
+      =link_to "#{deck.front_description} -> #{deck.back_description}", new_quiz_path(:deck_id => deck.id, :show => 'front')
+    %li
+      =link_to "#{deck.back_description} -> #{deck.front_description}", new_quiz_path(:deck_id => deck.id, :show => 'back')
