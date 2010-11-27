@@ -1,0 +1,47 @@
+alphabet:
+ก|gor gai
+ข|kor kai
+ฃ|kor khuad
+ค|kor kwaii
+ฅ|kor khon
+ฆ|kor rakang
+ง|ngor ngoo
+จ|jor jaan
+ฉ|chor ching
+ช|chor chang
+ซ|sor so
+ฌ|chor cher
+ญ|yor ying
+ฎ|dor cha-daa
+ฏ|dor pa-tuk
+ฐ|tor tharn
+ฑ|tor monto
+ฒ|tor poo thao
+ณ|nor nayn
+ด|dor dek
+ต|tor tao
+ถ|tor toong
+ท|tor taharn
+ธ|tor thong
+น|nor noo
+บ|bor bai mai
+ป|por plaa
+ผ|por pheung
+ฝ|for fhaa
+พ|por paan
+ฟ|for fun
+ภ|por sampao
+ม|mor maa
+ย|yor yuk
+ร|ror rua
+ล|lor ling
+ว|wor waen
+ศ|sor salaa
+ษ|sor rue-see
+ส|sor sua
+ห|hor heep
+ฬ|lor chu-laa
+อ|or aang
+ฮ|hor nok-noog
+
+

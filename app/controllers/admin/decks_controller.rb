@@ -30,7 +30,7 @@ class Admin::DecksController < Admin::ApplicationController
 
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to(@deck, :notice => 'Deck was successfully created.') }
+        format.html { redirect_to(admin_deck_url(@deck), :notice => 'Deck was successfully created.') }
         format.xml  { render :xml => @deck, :status => :created, :location => @deck }
       else
         format.html { render :action => "new" }
