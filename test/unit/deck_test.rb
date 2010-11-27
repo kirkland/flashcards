@@ -17,4 +17,9 @@ class DeckTest < ActiveSupport::TestCase
     d = Deck.create(:title => "some title", :bulk_cards => "|missing the front")
     assert !d.valid?
   end
+
+  test "new deck should create associated cards" do
+    d = Deck.create(:title => "some title", :front_description => "x", :back_description => "y", :bulk_cards => "one|two\nthree|four")
+    assert_not_equal [], d.cards
+  end
 end
