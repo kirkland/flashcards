@@ -14,10 +14,10 @@ class Deck < ActiveRecord::Base
 
   def bulk_cards=(text)
     @bulk_cards ||= text
-    cards = text.split("\n")
-    cards.each do |card|
+    new_cards = text.split("\n")
+    new_cards.each do |card|
       front, back = card.split("|")
-      Card.create(:deck => self, :front => front, :back => back)
+      cards.build(:deck => self, :front => front, :back => back)
     end
   end
 
