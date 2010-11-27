@@ -1,15 +1,25 @@
 body {
   background-color: #ecde6a; }
 
+#logo {
+  width: 930px;
+  font-size: 40px;
+  background-color: #a89815;
+  line-height: 100px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+
 h1 {
   padding: 0px;
   margin: 0; }
 
 #main {
-  width: 960px;
+  width: 930px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
   padding: 15px;
   background-color: white; }
 
