@@ -3,6 +3,8 @@ class Deck < ActiveRecord::Base
   has_many :quizzes
   after_update :save_cards
   validates_associated :cards
+  validates_presence_of :front_description
+  validates_presence_of :back_description
 
   validates_format_of :bulk_cards, :with => /\A(.+\|.+\n?){1,}\z/, :on => :create
           
@@ -38,15 +40,5 @@ class Deck < ActiveRecord::Base
         c.save(false)
       end
     end
-  end
-
-  def front_description
-    return attributes["front_description"] if attributes["front_description"].present?
-    "Front"
-  end
-
-  def back_description
-    return attributes["back_description"] if attributes["back_description"].present?
-    "Back"
   end
 end
