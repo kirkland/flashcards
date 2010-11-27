@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101127163439) do
+ActiveRecord::Schema.define(:version => 20101127164856) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20101127163439) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "back_to_front", :default => false, :null => false
   end
 
   create_table "users", :force => true do |t|
