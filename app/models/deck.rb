@@ -1,7 +1,9 @@
 class Deck < ActiveRecord::Base
   has_many :cards
   has_many :quizzes
+
   after_update :save_cards
+
   validates_associated :cards
   validates_presence_of :front_description
   validates_presence_of :back_description
@@ -37,7 +39,7 @@ class Deck < ActiveRecord::Base
       if c.should_destroy?
         c.destroy
       else
-        c.save(false)
+        c.save(:validate => false)
       end
     end
   end

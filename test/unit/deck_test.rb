@@ -3,7 +3,7 @@ require 'test_helper'
 class DeckTest < ActiveSupport::TestCase
   test "create new cards along with a new deck" do
     before_cards = Card.count
-    d = Deck.create(:title => "some title", :bulk_cards => "one|two\nthree|four")
+    d = Deck.create(:title => "some title", :front_description => "x", :back_description => "y", :bulk_cards => "one|two\nthree|four")
     assert_equal before_cards + 2, Card.count
   end
 
