@@ -2,6 +2,12 @@
 %p
   %b Title:
   = @deck.title
+%p
+  %b Front Description:
+  = @deck.front_description
+%p
+  %b Back Description:
+  = @deck.back_description
 
 %table.deck-card-table
   -@deck.cards.each do |card|

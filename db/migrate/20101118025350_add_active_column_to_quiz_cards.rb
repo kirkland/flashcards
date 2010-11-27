@@ -4,6 +4,6 @@ class AddActiveColumnToQuizCards < ActiveRecord::Migration
   end
 
   def self.down
-    delete_column :quiz_cards, :active
+    remove_column :quiz_cards, :active
   end
 end

@@ -12,6 +12,14 @@
     = f.label :title
     %br/
     = f.text_field :title
+  .field
+    = f.label :front_description
+    %br/
+    = f.text_field :front_description
+  .field
+    = f.label :back_description
+    %br/
+    = f.text_field :back_description
   #cards_fields
     =render :partial => 'card', :collection => @deck.cards
   %p

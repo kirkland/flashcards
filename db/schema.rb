@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101121204802) do
+ActiveRecord::Schema.define(:version => 20101127163439) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20101121204802) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "front_description", :limit => 128
+    t.string   "back_description",  :limit => 128
   end
 
   create_table "quiz_cards", :force => true do |t|
