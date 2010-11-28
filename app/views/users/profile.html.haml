@@ -1,11 +1,18 @@
-%h1= @user.username
+#profile
+  %h1= @user.username
 
-- @quizzes.each do |q|
-  %p 
-    %p=q.created_at
-    =q.deck.present? ? q.deck.title : "Deck #{q.deck_id} Deleted"
-    \: Got 
-    =q.quiz_cards.correct.count
-    out of
-    =q.quiz_cards.count
-
+  %table.quizzes
+    %tr
+      %th Date
+      %th Deck
+      %th Order
+      %th Score
+    - @quizzes.each do |q|
+      %tr
+        %td=q.created_at.strftime("%Y-%m-%d")
+        %td=q.deck.present? ? q.deck.title : "Deck #{q.deck_id} Deleted"
+        %td=order_string(q)
+        %td
+          =q.quiz_cards.correct.count
+          \/
+          =q.quiz_cards.count

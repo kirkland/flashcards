@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @quizzes = @user.quizzes
+    @quizzes = @user.quizzes.sort_by(&:created_at).reverse
   end
 
   private
