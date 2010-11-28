@@ -1,5 +1,5 @@
 - @decks.each do |deck|
-  %p="#{deck.title} (Front: #{deck.front_description}, Back: #{deck.back_description})"
+  %p=deck.title
   %ul
     %li
       =link_to "#{deck.front_description} -> #{deck.back_description}", new_quiz_path(:deck_id => deck.id, :show => 'front')
