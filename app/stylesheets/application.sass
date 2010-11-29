@@ -35,24 +35,26 @@ h1
 .inline
   display: inline
 
-.card
-  width: 800px
+#cards
   margin-left: auto
   margin-right: auto
-  font-size: 40px
-  border: 1px solid black
   margin-top: 20px
   margin-bottom: 20px
-  display: table
-  &:hover
-    background-color: #E0F8F7
-
-.card_value
   height: 200px
-  text-align: center
-  margin: 10px
-  display: table-cell
-  vertical-align: middle
+  .card
+    float: left
+    width: 460px
+    font-size: 40px
+    border: 1px solid black
+    display: table
+    &:hover
+      background-color: #E0F8F7
+    .card_value
+      height: 200px
+      text-align: center
+      margin: 10px
+      display: table-cell
+      vertical-align: middle
 
 .solid-border
   border-style: solid !important
@@ -60,10 +62,13 @@ h1
 .dashed-border
   border-style: dashed !important
 
+#quiz_nav
+  height: 140px
+
 #reveal_card_link, #correct_links_area
   margin-left: auto
   margin-right: auto
-  height: 100px
+  height: 130px
   text-align: center
   line-height: 100px
 
