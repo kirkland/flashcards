@@ -15,7 +15,7 @@ Flashcards::Application.routes.draw do
   resources :quiz, :only => [:index, :new, :show] do
     member do
       get :play
-      get :card_back
+      get :card
       post :next_card
     end
   end

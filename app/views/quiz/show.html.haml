@@ -1,38 +1,19 @@
+#big_card
+  #big_card_value
+    Front of Card
+
 #quiz_nav
   #reveal_card_link
     %p.message 
-    .big_button=link_to "Show Back", "#"
-  #correct_links_area{:style => "display: none"}
+    .big_button=link_to "Flip Card", "#"
+  #correct_links_area
     %p.message Did you get it right?
     #correct_answer.big_button=link_to "Yes", "#"
     #wrong_answer.big_button=link_to "No", "#"
   #processing{:style => "display: none"}
     =image_tag("/images/ajax-loader-1.gif")
 
-#cards
-  #card_front{:class => "card"}
-    #card_front_value.card_value
-  #card_back{:class => "card"}
-    #card_back_value.card_value
-
-#quiz_status
-  %div
-    %p Correct
-    #answered_correctly_count.status_box
-  %div
-    %p
-    .status_box
-  %div.extra_wide
-    %p % Correct
-    #percentage_correct.status_box
-  %div
-    .status_box
-  %div
-    %p Remaining
-    #cards_remaining.status_box
-
 - content_for :js do
   quiz = new Quiz({
-  back_path: "#{card_back_quiz_path(@quiz.id)}",
-  next_path: "#{next_card_quiz_path(@quiz.id)}"
+  card_path: "#{card_quiz_path(@quiz.id)}"
   });

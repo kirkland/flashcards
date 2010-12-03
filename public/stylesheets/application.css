@@ -35,26 +35,25 @@ h1 {
 .inline {
   display: inline; }
 
-#cards {
+#big_card {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  height: 200px; }
-  #cards .card {
-    float: left;
-    width: 460px;
-    font-size: 40px;
-    border: 1px solid black;
-    display: table; }
-    #cards .card:hover {
-      background-color: #e0f8f7; }
-    #cards .card .card_value {
-      height: 200px;
-      text-align: center;
-      margin: 10px;
-      display: table-cell;
-      vertical-align: middle; }
+  height: 300px;
+  border: solid 1px;
+  width: 650px;
+  font-size: 40px;
+  border: 1px solid black;
+  display: table; }
+  #big_card:hover {
+    background-color: #e0f8f7; }
+  #big_card #big_card_value {
+    height: 200px;
+    text-align: center;
+    margin: 10px;
+    display: table-cell;
+    vertical-align: middle; }
 
 .solid-border {
   border-style: solid !important; }

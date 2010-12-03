@@ -1,11 +1,8 @@
 Quiz = Class.create({
   initialize: function(options) {
-    this.back_path = options.back_path;
-    this.next_path = options.next_path;
-    this.card_status = "hidden";
+    this.card_path = options.card_path;
 
-
-    $('reveal_card_link').observe('click', this.reveal_back.bindAsEventListener(this));
+    $('flip_link').observe('click', this.flip_card.bindAsEventListener(this));
     $('correct_answer').observe('click', this.answered_correctly.bindAsEventListener(this));
     $('wrong_answer').observe('click', this.answered_wrong.bindAsEventListener(this));
 
@@ -14,7 +11,6 @@ Quiz = Class.create({
   },
 
   next_card: function(answer_result) {
-    $('correct_links_area').hide();
     $('processing').show();
 
     new Ajax.Request(this.next_path, {
@@ -36,15 +32,14 @@ Quiz = Class.create({
           $('card_back_value').update("");
           $('card_back').addClassName("dashed-border").removeClassName("solid-border");
         }
-        $('reveal_card_link').show();
+        $('flip_link').show();
         $('processing').hide();
       }.bind(this)
     });
   },
 
-  reveal_back: function(evt) {
+  flip_card: function(evt) {
     evt.stop();
-    $('reveal_card_link').hide();
     $('processing').show();
     new Ajax.Request(this.back_path, {
       method: 'GET',
@@ -53,14 +48,12 @@ Quiz = Class.create({
         $('card_back_value').update(response.responseText);
         $('card_back').addClassName("solid-border").removeClassName("dashed-border");
         $('processing').hide();
-        $('correct_links_area').show();
       }.bind(this)
     });
   },
 
   end_game: function() {
     $('quiz_nav').hide();
-    $('correct_links_area').hide();
   },
 
   answered_correctly: function(evt) {
