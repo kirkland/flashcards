@@ -61,7 +61,6 @@ Quiz = Class.create({
   end_game: function() {
     $('quiz_nav').hide();
     $('correct_links_area').hide();
-    $('site_nav').show();
   },
 
   answered_correctly: function(evt) {

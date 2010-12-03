@@ -1,8 +1,3 @@
-#site_nav{:style => "display:none"}
-  Game Over:
-  =link_to "Back to Decks", quiz_index_path 
-  |
-  =link_to "Repeat This Deck", new_quiz_path(:deck_id => @quiz.deck.id)
 #quiz_nav
   #reveal_card_link
     %p.message 
@@ -36,7 +31,6 @@
     %p Remaining
     #cards_remaining.status_box
 
-%p= link_to 'Back to Decks', quiz_index_path
 - content_for :js do
   quiz = new Quiz({
   back_path: "#{card_back_quiz_path(@quiz.id)}",
