@@ -7,6 +7,11 @@
 #quiz {
   margin-top: 50px;
   min-height: 600px; }
+  #quiz .flip_message {
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 5px; }
   #quiz .quiz_card {
     height: 300px;
     width: 700px;
