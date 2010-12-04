@@ -1,0 +1,14 @@
+#quiz {
+  margin-top: 50px;
+  min-height: 400px;
+  padding-left: 14px;
+  padding-right: 14px; }
+  #quiz .quiz_card {
+    height: 300px;
+    width: 700px;
+    border: 1px solid black; }
+  #quiz .float {
+    float: left; }
+  #quiz .arrow {
+    width: 100px;
+    height: 100px; }
