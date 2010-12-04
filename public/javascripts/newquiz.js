@@ -1,4 +1,5 @@
 NewQuiz = Class.create({
-  initialize: function() {
+  initialize: function(quiz) {
+    this.quiz = quiz;
   },
 });

@@ -27,6 +27,10 @@ class QuizController < ApplicationController
     end
   end
 
+  def bigcard
+    @quiz_json = @quiz.attributes.slice("deck_id").to_json.html_safe
+  end
+
   private
 
   def find_quiz
