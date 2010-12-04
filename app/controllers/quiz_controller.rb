@@ -28,7 +28,7 @@ class QuizController < ApplicationController
   end
 
   def bigcard
-    @quiz_json = @quiz.attributes.slice("deck_id").to_json.html_safe
+    @quiz_data = @quiz.data.to_json.html_safe
   end
 
   private
