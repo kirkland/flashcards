@@ -1,16 +1,24 @@
 NewQuiz = Class.create({
   initialize: function(quiz_data) {
     this.quiz_data = quiz_data;
+    this.show_active_card();
     $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
   },
 
   flip_card: function() {
     if (this.front_showing == true) {
-      $('quiz_card_content').update(this.active_card().back);
       this.front_showing = false;
     } else {
-      $('quiz_card_content').update(this.active_card().front);
       this.front_showing = true;
+    }
+    this.show_active_card();
+  },
+
+  show_active_card: function() {
+    if (this.front_showing == true) {
+      $('quiz_card_content').update(this.active_card().front);
+    } else {
+      $('quiz_card_content').update(this.active_card().back);
     }
   },
 
@@ -21,7 +29,6 @@ NewQuiz = Class.create({
     return rv;
   },
 
-  show_active_card: function() {
-    $('quiz_card_content').update("hey");
+  next_card: function () {
   },
 });
