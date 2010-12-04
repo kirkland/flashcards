@@ -1,6 +1,12 @@
+.float {
+  float: left; }
+
+.clear {
+  clear: both; }
+
 #quiz {
   margin-top: 50px;
-  min-height: 400px; }
+  min-height: 600px; }
   #quiz .quiz_card {
     height: 300px;
     width: 700px;
@@ -12,8 +18,20 @@
     padding: 0;
     text-align: center;
     font-size: 40px; }
-  #quiz .float {
-    float: left; }
   #quiz .arrow {
     width: 100px;
     height: 100px; }
+  #quiz .correct_links {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 310px;
+    height: 75px; }
+    #quiz .correct_links div {
+      float: left;
+      height: 75px;
+      width: 150px;
+      border: 1px solid black;
+      font-size: 20px;
+      line-height: 65px;
+      text-align: center; }
