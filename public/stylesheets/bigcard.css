@@ -1,12 +1,17 @@
 #quiz {
   margin-top: 50px;
-  min-height: 400px;
-  padding-left: 14px;
-  padding-right: 14px; }
+  min-height: 400px; }
   #quiz .quiz_card {
     height: 300px;
     width: 700px;
-    border: 1px solid black; }
+    border: 1px solid black;
+    margin-left: 14px;
+    margin-right: 14px; }
+  #quiz .quiz_card_content {
+    line-height: 270px;
+    padding: 0;
+    text-align: center;
+    font-size: 40px; }
   #quiz .float {
     float: left; }
   #quiz .arrow {
