@@ -9,6 +9,7 @@
       var $j = jQuery.noConflict();     
     = javascript_tag "document.observe('dom:loaded', function() { #{yield :js}; });"
     = javascript_include_tag 'quiz'
+    = javascript_include_tag 'newquiz'
     = csrf_meta_tag
   %body
     #logo
