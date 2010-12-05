@@ -1,6 +1,6 @@
 NewQuiz = Class.create({
-  initialize: function(quiz_data) {
-    this.quiz_data = quiz_data;
+  initialize: function(quiz_cards) {
+    this.quiz_cards = quiz_cards;
     this.show_active_card();
     $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
   },
@@ -23,12 +23,12 @@ NewQuiz = Class.create({
   },
 
   active_card: function() {
-    return this.quiz_data[this.find_active_card_index()];
+    return this.quiz_cards[this.find_active_card_index()];
   },
 
   find_active_card_index: function() {
     var rv = 0;
-    this.quiz_data.each(function(qc, index) {
+    this.quiz_cards.each(function(qc, index) {
       if (qc.active == true) {
         rv = index;
       }
