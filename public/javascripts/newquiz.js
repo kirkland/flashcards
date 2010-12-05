@@ -59,6 +59,7 @@ NewQuiz = Class.create({
       this.front_showing = true;
       this.active_card_index += 1;
       this.show_active_card();
+      this.update_db();
     }
   },
 
@@ -69,15 +70,18 @@ NewQuiz = Class.create({
       this.front_showing = true;
       this.active_card_index -= 1;
       this.show_active_card();
+      this.update_db();
     }
   },
 
   mark_correct: function () {
     this.active_card().correct = true;
+    this.update_db();
   },
 
   mark_incorrect: function () {
     this.active_card().correct = false;
+    this.update_db();
   },
 
   update_db: function () {
