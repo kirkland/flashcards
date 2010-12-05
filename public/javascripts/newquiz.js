@@ -6,6 +6,7 @@ NewQuiz = Class.create({
 
     $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
+    $('left_arrow').observe('click', this.prev_card.bindAsEventListener(this));
   },
 
   flip_card: function() {
@@ -51,6 +52,15 @@ NewQuiz = Class.create({
       alert("End of the deck!");
     } else {
       this.active_card_index += 1;
+      this.show_active_card();
+    }
+  },
+
+  prev_card: function () {
+    if (this.find_active_card_index() == 0) {
+      alert("Beginning of deck!");
+    } else {
+      this.active_card_index -= 1;
       this.show_active_card();
     }
   },
