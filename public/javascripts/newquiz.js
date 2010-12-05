@@ -7,6 +7,8 @@ NewQuiz = Class.create({
     $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
     $('left_arrow').observe('click', this.prev_card.bindAsEventListener(this));
+    $('correct_link').observe('click', this.mark_correct.bindAsEventListener(this));
+    $('incorrect_link').observe('click', this.mark_incorrect.bindAsEventListener(this));
   },
 
   flip_card: function() {
@@ -65,5 +67,13 @@ NewQuiz = Class.create({
       this.active_card_index -= 1;
       this.show_active_card();
     }
+  },
+
+  mark_correct: function () {
+    this.active_card().correct = true;
+  },
+
+  mark_incorrect: function () {
+    this.active_card().correct = false;
   },
 });
