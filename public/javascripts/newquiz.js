@@ -1,8 +1,11 @@
 NewQuiz = Class.create({
   initialize: function(quiz_cards) {
     this.quiz_cards = quiz_cards;
+    this.front_showing = true;
     this.show_active_card();
+
     $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
+    $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
   },
 
   flip_card: function() {
@@ -26,6 +29,8 @@ NewQuiz = Class.create({
     return this.quiz_cards[this.find_active_card_index()];
   },
 
+  // if we don't know yet what card is active, look through all
+  // cards, or return 0 if none are set as active
   find_active_card_index: function() {
     if (typeof this.active_card_index != "undefined") {
       return this.active_card_index;
@@ -42,5 +47,11 @@ NewQuiz = Class.create({
   },
 
   next_card: function () {
+    if (this.find_active_card_index() == this.quiz_cards.length - 1) {
+      alert("End of the deck!");
+    } else {
+      this.active_card_index += 1;
+      this.show_active_card();
+    }
   },
 });
