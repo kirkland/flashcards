@@ -23,8 +23,15 @@ NewQuiz = Class.create({
   },
 
   active_card: function() {
-    rv = this.quiz_data.detect(function(qc) {
-      return qc.active == true;
+    return this.quiz_data[this.find_active_card_index()];
+  },
+
+  find_active_card_index: function() {
+    var rv = 0;
+    this.quiz_data.each(function(qc, index) {
+      if (qc.active == true) {
+        rv = index;
+      }
     });
     return rv;
   },
