@@ -18,6 +18,7 @@ Flashcards::Application.routes.draw do
       get :card
       post :next_card
       get :bigcard # temp
+      post :update
     end
   end
 

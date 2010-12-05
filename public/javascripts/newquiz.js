@@ -1,6 +1,7 @@
 NewQuiz = Class.create({
-  initialize: function(quiz_cards) {
+  initialize: function(quiz_cards, update_path) {
     this.quiz_cards = quiz_cards;
+    this.update_path = update_path;
     this.front_showing = true;
     this.show_active_card();
 
@@ -75,5 +76,22 @@ NewQuiz = Class.create({
 
   mark_incorrect: function () {
     this.active_card().correct = false;
+  },
+
+  update_params: function () {
+    var data = this.quiz_cards.collect(function (qc) {
+      var subset = new Object();
+      subset.correct = qc.correct;
+      subset.active = qc.active;
+      subset.visited = qc.visited;
+      return subset;
+    });
+    return data;
+  },
+
+  update_db: function () {
+    new Ajax.Request(this.update_path, {
+      parameters: this.update_params(),
+    });
   },
 });

@@ -29,6 +29,11 @@ class QuizController < ApplicationController
 
   def bigcard
     @quiz_data = @quiz.data.to_json.html_safe
+    @update_path = quiz_path(@quiz)
+  end
+
+  def update
+    render :text => params.inspect
   end
 
   private
