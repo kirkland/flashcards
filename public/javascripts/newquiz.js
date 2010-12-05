@@ -76,12 +76,12 @@ NewQuiz = Class.create({
 
   mark_correct: function () {
     this.active_card().correct = true;
-    this.update_db();
+    this.next_card();
   },
 
   mark_incorrect: function () {
     this.active_card().correct = false;
-    this.update_db();
+    this.next_card();
   },
 
   update_db: function () {
