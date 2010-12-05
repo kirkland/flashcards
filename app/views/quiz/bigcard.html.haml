@@ -15,4 +15,4 @@
       Incorrect
 
 - content_for :js do
-  quiz = new NewQuiz(#{@quiz_data}, "/quiz/#{@quiz.id}");
+  quiz = new NewQuiz(#{@quiz_data}, "#{update_quiz_card_quiz_path(@quiz.id)}");

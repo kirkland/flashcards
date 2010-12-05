@@ -32,7 +32,13 @@ class QuizController < ApplicationController
     @update_path = quiz_path(@quiz)
   end
 
-  def update
+  def update_quiz_card
+    quiz_card = QuizCard.find(params[:qc_id])
+    quiz_card.correct = params[:correct] == "" ? nil : params[:correct] == "true"
+    quiz_card.visited = params[:visited] == "true"
+    quiz_card.active = params[:active] == "true"
+    quiz_card.save
+
     render :text => params.inspect
   end
 

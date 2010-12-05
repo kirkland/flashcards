@@ -40,7 +40,8 @@ class Quiz < ActiveRecord::Base
         :back => qc.back,
         :correct => qc.correct,
         :visited => qc.visited,
-        :active => qc.active
+        :active => qc.active,
+        :qc_id => qc.id
       }
     end
   end

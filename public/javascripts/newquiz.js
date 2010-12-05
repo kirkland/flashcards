@@ -22,6 +22,8 @@ NewQuiz = Class.create({
   },
 
   show_active_card: function() {
+    this.active_card().visited = true;
+    this.active_card().active = true;
     if (this.front_showing == true) {
       $('quiz_card_content').update(this.active_card().front);
     } else {
@@ -78,20 +80,9 @@ NewQuiz = Class.create({
     this.active_card().correct = false;
   },
 
-  update_params: function () {
-    var data = this.quiz_cards.collect(function (qc) {
-      var subset = new Object();
-      subset.correct = qc.correct;
-      subset.active = qc.active;
-      subset.visited = qc.visited;
-      return subset;
-    });
-    return data;
-  },
-
   update_db: function () {
     new Ajax.Request(this.update_path, {
-      parameters: this.update_params(),
+      parameters: this.active_card(),
     });
   },
 });
