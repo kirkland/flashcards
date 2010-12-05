@@ -27,13 +27,18 @@ NewQuiz = Class.create({
   },
 
   find_active_card_index: function() {
+    if (typeof this.active_card_index != "undefined") {
+      return this.active_card_index;
+    }
+
     var rv = 0;
     this.quiz_cards.each(function(qc, index) {
       if (qc.active == true) {
         rv = index;
       }
     });
-    return rv;
+    this.active_card_index = rv;
+    return this.active_card_index;
   },
 
   next_card: function () {
