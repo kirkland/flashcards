@@ -36,8 +36,9 @@ class QuizController < ApplicationController
     quiz_card = QuizCard.find(params[:qc_id])
     quiz_card.correct = params[:correct] == "" ? nil : params[:correct] == "true"
     quiz_card.visited = params[:visited] == "true"
-    quiz_card.active = params[:active] == "true"
     quiz_card.save
+
+    @quiz.update_attribute(:active_card_id, params[:qc_id])
 
     render :text => params.inspect
   end

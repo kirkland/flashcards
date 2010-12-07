@@ -1,6 +1,7 @@
 NewQuiz = Class.create({
-  initialize: function(quiz_cards, update_path) {
-    this.quiz_cards = quiz_cards;
+  initialize: function(quiz_data, update_path) {
+    this.quiz_cards = quiz_data.quiz_cards;
+    this.active_card_id = quiz_data.active_card_id;
     this.update_path = update_path;
     this.front_showing = true;
     this.show_active_card();
@@ -23,7 +24,6 @@ NewQuiz = Class.create({
 
   show_active_card: function() {
     this.active_card().visited = true;
-    this.active_card().active = true;
     if (this.front_showing == true) {
       $('quiz_card_content').update(this.active_card().front);
     } else {
@@ -41,13 +41,13 @@ NewQuiz = Class.create({
     if (typeof this.active_card_index != "undefined") {
       return this.active_card_index;
     }
-
+    
     var rv = 0;
     this.quiz_cards.each(function(qc, index) {
-      if (qc.active == true) {
+      if (this.active_card_id == qc.qc_id) {
         rv = index;
       }
-    });
+    }.bind(this));
     this.active_card_index = rv;
     return this.active_card_index;
   },
@@ -58,6 +58,7 @@ NewQuiz = Class.create({
     } else {
       this.front_showing = true;
       this.active_card_index += 1;
+      this.active_card_id = this.active_card().qc_id;
       this.show_active_card();
       this.update_db();
     }
@@ -69,6 +70,7 @@ NewQuiz = Class.create({
     } else {
       this.front_showing = true;
       this.active_card_index -= 1;
+      this.active_card_id = this.active_card().qc_id;
       this.show_active_card();
       this.update_db();
     }

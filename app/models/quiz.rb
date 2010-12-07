@@ -34,15 +34,15 @@ class Quiz < ActiveRecord::Base
   end
 
   def data
-    quiz_cards.collect do |qc|
+    cards_data = quiz_cards.collect do |qc|
       {
         :front => qc.front,
         :back => qc.back,
         :correct => qc.correct,
         :visited => qc.visited,
-        :active => qc.active,
         :qc_id => qc.id
       }
     end
+    { :quiz_cards => cards_data, :active_card_id => active_card_id}
   end
 end

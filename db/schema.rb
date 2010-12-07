@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128214918) do
+ActiveRecord::Schema.define(:version => 20101207010711) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20101128214918) do
     t.integer "card_id"
     t.boolean "visited", :default => false
     t.boolean "correct"
-    t.boolean "active",  :default => false
   end
 
   add_index "quiz_cards", ["quiz_id"], :name => "index_quiz_cards_on_quiz_id"
@@ -43,7 +42,8 @@ ActiveRecord::Schema.define(:version => 20101128214918) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "back_to_front", :default => false, :null => false
+    t.boolean  "back_to_front",  :default => false, :null => false
+    t.integer  "active_card_id"
   end
 
   create_table "users", :force => true do |t|
