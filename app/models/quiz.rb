@@ -8,22 +8,6 @@ class Quiz < ActiveRecord::Base
       QuizCard.create(:quiz_id => id, :card_id => c.id, :visited => false)
     end
   end
-  
-  def next_card(answer_result)
-    prev_card = quiz_cards.detect{|q| q.active? }
-    prev_card.update_attribute(:correct, answer_result == "correct") if prev_card.present?
-    prev_card.update_attribute(:active, false) if prev_card.present?
-    prev_card.update_attribute(:visited, true) if prev_card.present?
-
-    available_cards = quiz_cards.not_visited
-    if available_cards.empty?
-      return "no more cards"
-    end
-
-    next_card = available_cards.sample
-    next_card.update_attribute(:active, true)
-    next_card.card
-  end
 
   def quiz_status
     num_correct = quiz_cards.correct.count

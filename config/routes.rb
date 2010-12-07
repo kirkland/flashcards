@@ -16,7 +16,6 @@ Flashcards::Application.routes.draw do
     member do
       get :play
       get :card
-      post :next_card
       post :update_quiz_card
     end
   end
