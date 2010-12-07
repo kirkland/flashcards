@@ -13,21 +13,7 @@ class QuizController < ApplicationController
     redirect_to quiz_path(@quiz)
   end
 
-  def card_back
-    render :text => @quiz.back_to_front? ? Card.find(session[:card_id]).front : Card.find(session[:card_id]).back
-  end
-
-  def next_card
-    card = @quiz.next_card(params[:correct])
-    if card == "no more cards"
-      render :json => {:front => "no more cards", :quiz_status => @quiz.quiz_status} and return
-    else
-      session[:card_id] = card.id
-      render :json => {:front => @quiz.back_to_front? ? card.back : card.front, :quiz_status => @quiz.quiz_status} and return
-    end
-  end
-
-  def bigcard
+  def show
     @quiz_data = @quiz.data.to_json.html_safe
     @update_path = quiz_path(@quiz)
   end
