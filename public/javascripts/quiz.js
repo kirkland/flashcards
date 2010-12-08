@@ -15,16 +15,6 @@ Quiz = Class.create({
     this.refresh();
   },
 
-
-  refresh: function() {
-    this.active_card().visited = true;
-    if (this.front_showing == true) {
-      $('quiz_card_content').update(this.active_card().front);
-    } else {
-      $('quiz_card_content').update(this.active_card().back);
-    }
-  },
-
   active_card: function() {
     return this.quiz_cards[this.find_active_card_index()];
   },
@@ -44,6 +34,15 @@ Quiz = Class.create({
     }.bind(this));
     this.active_card_index = rv;
     return this.active_card_index;
+  },
+
+  refresh: function() {
+    this.active_card().visited = true;
+    if (this.front_showing == true) {
+      $('quiz_card_content').update(this.active_card().front);
+    } else {
+      $('quiz_card_content').update(this.active_card().back);
+    }
   },
 
   update_db: function () {
