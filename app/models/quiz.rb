@@ -20,8 +20,8 @@ class Quiz < ActiveRecord::Base
   def data
     cards_data = quiz_cards.collect do |qc|
       {
-        :front => qc.front,
-        :back => qc.back,
+        :front => back_to_front ? qc.back : qc.front,
+        :back => back_to_front ? qc.front : qc.back,
         :correct => qc.correct,
         :visited => qc.visited,
         :id => qc.id
