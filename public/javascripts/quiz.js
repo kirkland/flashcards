@@ -1,10 +1,9 @@
 Quiz = Class.create({
   initialize: function(quiz_data, update_path) {
     this.quiz_cards = quiz_data.quiz_cards;
-    this.active_card_id = quiz_data.active_card_id;
     this.update_path = update_path;
     this.front_showing = true;
-    this.active_card_index = this.find_active_card_index();
+    this.active_card_index = this.find_active_card_index(quiz_data.active_card_id);
 
     $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
@@ -15,14 +14,17 @@ Quiz = Class.create({
     this.refresh();
 
     // on first load, need to set that first card as visited
-    this.update_db({active_card_id: this.active_card().qc_id});
+    this.update_db({active_card_id: this.active_card().id});
   },
 
   // called in initialize only
-  find_active_card_index: function() {
+  // active_card_id will be null if this is a brand new quiz
+  find_active_card_index: function(active_card_id) {
+    if (null == active_card_id) return 0;
+
     var rv = 0;
     this.quiz_cards.each(function(qc, index) {
-      if (this.active_card_id == qc.qc_id) {
+      if (active_card_id == qc.id) {
         rv = index;
       }
     }.bind(this));
@@ -34,12 +36,7 @@ Quiz = Class.create({
   },
 
   refresh: function() {
-    this.active_card().visited = true;
-    if (this.front_showing == true) {
-      $('quiz_card_content').update(this.active_card().front);
-    } else {
-      $('quiz_card_content').update(this.active_card().back);
-    }
+    $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
   },
 
   update_db: function (active_card_id, params) {
@@ -64,7 +61,7 @@ Quiz = Class.create({
       this.front_showing = true;
       this.active_card_index += 1;
       this.refresh();
-      this.update_db(this.active_card().qc_id);
+      this.update_db(this.active_card().id);
     }
   },
 
@@ -75,13 +72,13 @@ Quiz = Class.create({
       this.front_showing = true;
       this.active_card_index -= 1;
       this.refresh();
-      this.update_db(this.active_card().qc_id);
+      this.update_db(this.active_card().id);
     }
   },
 
   mark_correct: function () {
     this.active_card().correct = true;
-    var correct_card = this.active_card().qc_id;
+    var correct_card = this.active_card().id;
     if (this.active_card_index == this.quiz_cards.length - 1) {
       alert("End of the deck!");
     } else {
@@ -89,12 +86,12 @@ Quiz = Class.create({
       this.active_card_index += 1;
       this.refresh();
     }
-    this.update_db(this.active_card().qc_id, {correct_card: correct_card});
+    this.update_db(this.active_card().id, {correct_card: correct_card});
   },
 
   mark_incorrect: function () {
     this.active_card().correct = false;
-    var incorrect_card = this.active_card().qc_id;
+    var incorrect_card = this.active_card().id;
     if (this.active_card_index == this.quiz_cards.length - 1) {
       alert("End of the deck!");
     } else {
@@ -102,6 +99,6 @@ Quiz = Class.create({
       this.active_card_index += 1;
       this.refresh();
     }
-    this.update_db(this.active_card().qc_id, {incorrect_card: incorrect_card});
+    this.update_db(this.active_card().id, {incorrect_card: incorrect_card});
   },
 });

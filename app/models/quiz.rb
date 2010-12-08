@@ -24,7 +24,7 @@ class Quiz < ActiveRecord::Base
         :back => qc.back,
         :correct => qc.correct,
         :visited => qc.visited,
-        :qc_id => qc.id
+        :id => qc.id
       }
     end
     { :quiz_cards => cards_data, :active_card_id => active_card_id}
