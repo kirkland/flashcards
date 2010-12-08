@@ -19,12 +19,12 @@ class QuizController < ApplicationController
   end
 
   def update_quiz_card
-    quiz_card = QuizCard.find(params[:qc_id])
-    quiz_card.correct = params[:correct] == "" ? nil : params[:correct] == "true"
-    quiz_card.visited = params[:visited] == "true"
-    quiz_card.save
-
-    @quiz.update_attribute(:active_card_id, params[:qc_id])
+    if params[:active_card_id].present?
+      @quiz.update_attribute(:active_card_id, params[:active_card_id])
+      QuizCard.find(params[:active_card_id]).update_attribute(:visited, true)
+    end
+    QuizCard.find(params[:correct_card]).update_attribute(:correct, true) if params[:correct_card].present?
+    QuizCard.find(params[:incorrect_card]).update_attribute(:correct, false) if params[:incorrect_card].present?
 
     render :text => params.inspect
   end
