@@ -26,7 +26,7 @@ class Quiz < ActiveRecord::Base
         :visited => qc.visited,
         :id => qc.id
       }
-    end
+    end.shuffle
     { :quiz_cards => cards_data, :active_card_id => active_card_id}
   end
 end
