@@ -4,7 +4,6 @@ Quiz = Class.create({
     this.active_card_id = quiz_data.active_card_id;
     this.update_path = update_path;
     this.front_showing = true;
-    this.update_data = new Object();
 
     $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
@@ -14,7 +13,7 @@ Quiz = Class.create({
 
     this.refresh();
 
-    // for first load, set that first card as visited
+    // on first load, need to set that first card as visited
     this.update_db({active_card_id: this.active_card().qc_id});
   },
 
@@ -48,7 +47,10 @@ Quiz = Class.create({
     }
   },
 
-  update_db: function (params) {
+  update_db: function (active_card_id, params) {
+    if (params == null) params = new Object();
+    params.active_card_id = active_card_id;
+
     new Ajax.Request(this.update_path, {
       parameters: params,
     });
@@ -56,11 +58,7 @@ Quiz = Class.create({
 
   // user methods
   flip_card: function() {
-    if (this.front_showing == true) {
-      this.front_showing = false;
-    } else {
-      this.front_showing = true;
-    }
+    this.front_showing = this.front_showing ? false : true
     this.refresh();
   },
 
@@ -70,9 +68,8 @@ Quiz = Class.create({
     } else {
       this.front_showing = true;
       this.active_card_index += 1;
-      this.active_card_id = this.active_card().qc_id;
       this.refresh();
-      this.update_db({active_card_id: this.active_card_id});
+      this.update_db(this.active_card().qc_id);
     }
   },
 
@@ -82,9 +79,8 @@ Quiz = Class.create({
     } else {
       this.front_showing = true;
       this.active_card_index -= 1;
-      this.active_card_id = this.active_card().qc_id;
       this.refresh();
-      this.update_db({active_card_id: this.active_card_id});
+      this.update_db(this.active_card().qc_id);
     }
   },
 
@@ -96,10 +92,9 @@ Quiz = Class.create({
     } else {
       this.front_showing = true;
       this.active_card_index += 1;
-      this.active_card_id = this.active_card().qc_id;
       this.refresh();
     }
-    this.update_db({active_card_id: this.active_card_id, correct_card: correct_card});
+    this.update_db(this.active_card().qc_id, {correct_card: correct_card});
   },
 
   mark_incorrect: function () {
@@ -110,9 +105,8 @@ Quiz = Class.create({
     } else {
       this.front_showing = true;
       this.active_card_index += 1;
-      this.active_card_id = this.active_card().qc_id;
       this.refresh();
     }
-    this.update_db({active_card_id: this.active_card_id, incorrect_card: incorrect_card});
+    this.update_db(this.active_card().qc_id, {incorrect_card: incorrect_card});
   },
 });
