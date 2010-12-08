@@ -39,9 +39,9 @@ Quiz = Class.create({
     $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
   },
 
-  update_db: function (active_card_id, params) {
+  update_db: function (params) {
     if (params == null) params = new Object();
-    params.active_card_id = active_card_id;
+    params.active_card_id = this.active_card().id;
 
     new Ajax.Request(this.update_path, {
       parameters: params,
@@ -61,7 +61,7 @@ Quiz = Class.create({
       this.front_showing = true;
       this.active_card_index += 1;
       this.refresh();
-      this.update_db(this.active_card().id);
+      this.update_db();
     }
   },
 
@@ -72,7 +72,7 @@ Quiz = Class.create({
       this.front_showing = true;
       this.active_card_index -= 1;
       this.refresh();
-      this.update_db(this.active_card().id);
+      this.update_db();
     }
   },
 
@@ -86,7 +86,7 @@ Quiz = Class.create({
       this.active_card_index += 1;
       this.refresh();
     }
-    this.update_db(this.active_card().id, {correct_card: correct_card});
+    this.update_db({correct_card: correct_card});
   },
 
   mark_incorrect: function () {
@@ -99,6 +99,6 @@ Quiz = Class.create({
       this.active_card_index += 1;
       this.refresh();
     }
-    this.update_db(this.active_card().id, {incorrect_card: incorrect_card});
+    this.update_db({incorrect_card: incorrect_card});
   },
 });
