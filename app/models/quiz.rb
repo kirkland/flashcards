@@ -4,7 +4,7 @@ class Quiz < ActiveRecord::Base
   has_many :quiz_cards
 
   def start_quiz
-    deck.cards.each do |c|
+    deck.cards.shuffle.each do |c|
       QuizCard.create(:quiz_id => id, :card_id => c.id, :visited => false)
     end
   end
@@ -26,7 +26,7 @@ class Quiz < ActiveRecord::Base
         :visited => qc.visited,
         :id => qc.id
       }
-    end.shuffle
+    end
     { :quiz_cards => cards_data, :active_card_id => active_card_id}
   end
 end
