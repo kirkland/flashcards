@@ -45,9 +45,9 @@ Quiz = Class.create({
     }
   },
 
-  update_db: function () {
+  update_db: function (params) {
     new Ajax.Request(this.update_path, {
-      parameters: this.active_card(),
+      parameters: params,
     });
   },
 
@@ -69,7 +69,7 @@ Quiz = Class.create({
       this.active_card_index += 1;
       this.active_card_id = this.active_card().qc_id;
       this.refresh();
-      this.update_db();
+      this.update_db({active_card_id: this.active_card_id});
     }
   },
 
@@ -81,17 +81,35 @@ Quiz = Class.create({
       this.active_card_index -= 1;
       this.active_card_id = this.active_card().qc_id;
       this.refresh();
-      this.update_db();
+      this.update_db({active_card_id: this.active_card_id});
     }
   },
 
   mark_correct: function () {
     this.active_card().correct = true;
-    this.next_card();
+    var correct_card = this.active_card_id;
+    if (this.find_active_card_index() == this.quiz_cards.length - 1) {
+      alert("End of the deck!");
+    } else {
+      this.front_showing = true;
+      this.active_card_index += 1;
+      this.active_card_id = this.active_card().qc_id;
+      this.refresh();
+    }
+    this.update_db({active_card_id: this.active_card_id, correct_card: correct_card});
   },
 
   mark_incorrect: function () {
     this.active_card().correct = false;
-    this.next_card();
+    var correct_card = this.active_card_id;
+    if (this.find_active_card_index() == this.quiz_cards.length - 1) {
+      alert("End of the deck!");
+    } else {
+      this.front_showing = true;
+      this.active_card_index += 1;
+      this.active_card_id = this.active_card().qc_id;
+      this.refresh();
+    }
+    this.update_db({active_card_id: this.active_card_id, incorrect_card: correct_card});
   },
 });
