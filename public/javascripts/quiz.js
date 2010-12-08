@@ -13,6 +13,9 @@ Quiz = Class.create({
     $('incorrect_link').observe('click', this.mark_incorrect.bindAsEventListener(this));
 
     this.refresh();
+
+    // for first load, set that first card as visited
+    this.update_db({active_card_id: this.active_card().qc_id});
   },
 
   active_card: function() {
@@ -87,7 +90,7 @@ Quiz = Class.create({
 
   mark_correct: function () {
     this.active_card().correct = true;
-    var correct_card = this.active_card_id;
+    var correct_card = this.active_card().qc_id;
     if (this.find_active_card_index() == this.quiz_cards.length - 1) {
       alert("End of the deck!");
     } else {
@@ -101,7 +104,7 @@ Quiz = Class.create({
 
   mark_incorrect: function () {
     this.active_card().correct = false;
-    var correct_card = this.active_card_id;
+    var incorrect_card = this.active_card().qc_id;
     if (this.find_active_card_index() == this.quiz_cards.length - 1) {
       alert("End of the deck!");
     } else {
@@ -110,6 +113,6 @@ Quiz = Class.create({
       this.active_card_id = this.active_card().qc_id;
       this.refresh();
     }
-    this.update_db({active_card_id: this.active_card_id, incorrect_card: correct_card});
+    this.update_db({active_card_id: this.active_card_id, incorrect_card: incorrect_card});
   },
 });
