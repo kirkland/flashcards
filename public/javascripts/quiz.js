@@ -4,6 +4,7 @@ Quiz = Class.create({
     this.active_card_id = quiz_data.active_card_id;
     this.update_path = update_path;
     this.front_showing = true;
+    this.active_card_index = this.find_active_card_index();
 
     $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
@@ -17,25 +18,19 @@ Quiz = Class.create({
     this.update_db({active_card_id: this.active_card().qc_id});
   },
 
-  active_card: function() {
-    return this.quiz_cards[this.find_active_card_index()];
-  },
-
-  // if we don't know yet what card is active, look through all
-  // cards, or return 0 if none are set as active
+  // called in initialize only
   find_active_card_index: function() {
-    if (typeof this.active_card_index != "undefined") {
-      return this.active_card_index;
-    }
-    
     var rv = 0;
     this.quiz_cards.each(function(qc, index) {
       if (this.active_card_id == qc.qc_id) {
         rv = index;
       }
     }.bind(this));
-    this.active_card_index = rv;
-    return this.active_card_index;
+    return rv;
+  },
+
+  active_card: function() {
+    return this.quiz_cards[this.active_card_index];
   },
 
   refresh: function() {
@@ -63,7 +58,7 @@ Quiz = Class.create({
   },
 
   next_card: function () {
-    if (this.find_active_card_index() == this.quiz_cards.length - 1) {
+    if (this.active_card_index == this.quiz_cards.length - 1) {
       alert("End of the deck!");
     } else {
       this.front_showing = true;
@@ -74,7 +69,7 @@ Quiz = Class.create({
   },
 
   prev_card: function () {
-    if (this.find_active_card_index() == 0) {
+    if (this.active_card_index == 0) {
       alert("Beginning of deck!");
     } else {
       this.front_showing = true;
@@ -87,7 +82,7 @@ Quiz = Class.create({
   mark_correct: function () {
     this.active_card().correct = true;
     var correct_card = this.active_card().qc_id;
-    if (this.find_active_card_index() == this.quiz_cards.length - 1) {
+    if (this.active_card_index == this.quiz_cards.length - 1) {
       alert("End of the deck!");
     } else {
       this.front_showing = true;
@@ -100,7 +95,7 @@ Quiz = Class.create({
   mark_incorrect: function () {
     this.active_card().correct = false;
     var incorrect_card = this.active_card().qc_id;
-    if (this.find_active_card_index() == this.quiz_cards.length - 1) {
+    if (this.active_card_index == this.quiz_cards.length - 1) {
       alert("End of the deck!");
     } else {
       this.front_showing = true;
