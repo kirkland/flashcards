@@ -11,7 +11,7 @@ class Quiz < ActiveRecord::Base
 
   def quiz_status
     num_correct = quiz_cards.correct.count
-    num_answered = quiz_cards.visited.count
+    num_answered = quiz_cards.where("correct IS NOT NULL").count
     num_remaining = quiz_cards.length - num_answered
     
     {:num_correct => num_correct, :num_answered => num_answered, :num_remaining => num_remaining, :percent_correct => num_answered == 0 ? 0 : num_correct.to_f/num_answered}
