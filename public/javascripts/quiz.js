@@ -46,6 +46,12 @@ Quiz = Class.create({
 
     new Ajax.Request(this.update_path, {
       parameters: params,
+      onSuccess: function (resp) {
+        this.quiz_status = resp.responseJSON;
+        $('cards_correct').update(this.quiz_status.num_correct);
+        $('cards_answered').update(this.quiz_status.num_answered);
+        $('cards_remaining').update(this.quiz_status.num_remaining);
+      }
     });
   },
 

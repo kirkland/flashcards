@@ -26,7 +26,7 @@ class QuizController < ApplicationController
     QuizCard.find(params[:correct_card]).update_attribute(:correct, true) if params[:correct_card].present?
     QuizCard.find(params[:incorrect_card]).update_attribute(:correct, false) if params[:incorrect_card].present?
 
-    render :text => params.inspect
+    render :json => @quiz.quiz_status
   end
 
   private
