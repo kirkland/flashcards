@@ -5,7 +5,8 @@ Quiz = Class.create({
     this.front_showing = true;
     this.active_card_index = this.find_active_card_index(quiz_data.active_card_id);
 
-    $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
+    $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
+    $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
     $('left_arrow').observe('click', this.prev_card.bindAsEventListener(this));
     $('correct_link').observe('click', this.mark_correct.bindAsEventListener(this));
@@ -48,9 +49,13 @@ Quiz = Class.create({
     });
   },
 
-  // user methods
-  flip_card: function() {
-    this.front_showing = this.front_showing ? false : true
+  flip_card_front: function() {
+    this.front_showing = true;
+    this.refresh();
+  },
+
+  flip_card_back: function() {
+    this.front_showing = false;
     this.refresh();
   },
 
