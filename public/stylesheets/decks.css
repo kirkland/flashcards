@@ -1,4 +1,17 @@
 #quiz_index .deck {
+  background: pink;
   width: 450px;
   height: 200px;
+  margin: 5px;
+  border: 1px solid black;
   float: left; }
+  #quiz_index .deck .title {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold; }
+  #quiz_index .deck .side {
+    float: left;
+    width: 225px;
+    text-align: center;
+    height: 160px; }
