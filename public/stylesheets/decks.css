@@ -1,22 +1,24 @@
-#quiz_index .deck {
-  background: pink;
-  width: 450px;
-  height: 200px;
-  margin: 5px;
-  border: 1px solid black;
-  float: left; }
-  #quiz_index .deck .title {
-    text-align: center;
-    height: 40px;
-    line-height: 40px;
-    font-weight: bold; }
-  #quiz_index .deck .side {
-    float: left;
-    width: 225px;
-    text-align: center;
-    padding-top: 10px;
-    height: 150px; }
-    #quiz_index .deck .side .mastery {
-      margin-top: 30px; }
-      #quiz_index .deck .side .mastery .score {
-        font-size: 50px; }
+#quiz_index {
+  margin-top: 20px; }
+  #quiz_index .deck {
+    background: pink;
+    width: 450px;
+    height: 200px;
+    margin: 5px;
+    border: 1px solid black;
+    float: left; }
+    #quiz_index .deck .title {
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      font-weight: bold; }
+    #quiz_index .deck .side {
+      float: left;
+      width: 225px;
+      text-align: center;
+      padding-top: 10px;
+      height: 150px; }
+      #quiz_index .deck .side .mastery {
+        margin-top: 30px; }
+        #quiz_index .deck .side .mastery .score {
+          font-size: 50px; }
