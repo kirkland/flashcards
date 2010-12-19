@@ -23,6 +23,7 @@ Flashcards::Application.routes.draw do
   root :to => 'quiz#index'
 
   namespace :admin do
+    get '/' => 'dashboard#index'
     resources :decks
   end
 end
