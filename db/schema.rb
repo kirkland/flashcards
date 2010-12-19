@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101207010711) do
+ActiveRecord::Schema.define(:version => 20101219014604) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20101207010711) do
     t.datetime "updated_at"
     t.string   "front_description", :limit => 128
     t.string   "back_description",  :limit => 128
+    t.boolean  "active",                           :default => false
   end
 
   create_table "quiz_cards", :force => true do |t|

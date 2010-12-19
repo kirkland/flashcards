@@ -1,0 +1,21 @@
+%h1 Listing decks
+%table
+  %tr
+    %th ID
+    %th Title
+    %th
+    %th
+    %th
+  - @decks.each do |deck|
+    %tr
+      %td= deck.id
+      %td= deck.title
+      %td= link_to 'Show', admin_deck_path(deck)
+      %td= link_to 'Edit', edit_admin_deck_path(deck)
+      %td= link_to 'Destroy', admin_deck_path(deck), :confirm => 'Are you sure?', :method => :delete
+      - if deck.active?
+        %td= link_to 'Deactivate', deactivate_admin_deck_path(deck), :method => :post
+      - else
+        %td= link_to 'Activate', activate_admin_deck_path(deck), :method => :post
+%br/
+= link_to 'New Deck', new_admin_deck_path

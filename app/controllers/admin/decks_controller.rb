@@ -1,11 +1,10 @@
 class Admin::DecksController < Admin::ApplicationController
+  before_filter :find_deck, :only => [:edit, :show, :update, :destroy, :activate, :deactivate]
   def index
     @decks = Deck.all
   end
 
   def show
-    @deck = Deck.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @deck }
@@ -22,7 +21,6 @@ class Admin::DecksController < Admin::ApplicationController
   end
 
   def edit
-    @deck = Deck.find(params[:id])
   end
 
   def create
@@ -40,8 +38,6 @@ class Admin::DecksController < Admin::ApplicationController
   end
 
   def update
-    @deck = Deck.find(params[:id])
-
     respond_to do |format|
       if @deck.update_attributes(params[:deck])
         format.html { redirect_to(:action => 'show', :notice => 'Deck was successfully updated.') }
@@ -54,13 +50,22 @@ class Admin::DecksController < Admin::ApplicationController
   end
 
   def destroy
-    @deck = Deck.find(params[:id])
     @deck.destroy
 
     respond_to do |format|
       format.html { redirect_to(admin_decks_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def activate
+    @deck.update_attribute(:active, true)
+    redirect_to admin_decks_path
+  end
+
+  def deactivate
+    @deck.update_attribute(:active, false)
+    redirect_to admin_decks_path
   end
 
   private

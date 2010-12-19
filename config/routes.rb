@@ -24,6 +24,11 @@ Flashcards::Application.routes.draw do
 
   namespace :admin do
     get '/' => 'dashboard#index'
-    resources :decks
+    resources :decks do
+      member do
+        post :activate
+        post :deactivate
+      end
+    end
   end
 end

@@ -2,7 +2,7 @@ class QuizController < ApplicationController
   before_filter :find_quiz, :except => [:index, :new]
 
   def index
-    @decks = Deck.all
+    @decks = params[:all] ? Deck.all : Deck.where(:active => true)
   end
 
   def new
