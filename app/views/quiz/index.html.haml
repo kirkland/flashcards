@@ -3,7 +3,15 @@
     .deck
       .title=deck.title
       .side
-        =link_to "#{deck.front_description} -> #{deck.back_description}", new_quiz_path(:deck_id => deck.id, :show => 'front')
+        %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'front')}
+          %div="#{deck.front_description} -> #{deck.back_description}"
+          .mastery 
+            Mastery
+            .score 5
       .side
-        =link_to "#{deck.back_description} -> #{deck.front_description}", new_quiz_path(:deck_id => deck.id, :show => 'back')
+        %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back')}
+          %div="#{deck.front_description} -> #{deck.back_description}"
+          .mastery 
+            Mastery
+            .score 5
 .clear

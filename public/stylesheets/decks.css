@@ -14,4 +14,9 @@
     float: left;
     width: 225px;
     text-align: center;
-    height: 160px; }
+    padding-top: 10px;
+    height: 150px; }
+    #quiz_index .deck .side .mastery {
+      margin-top: 30px; }
+      #quiz_index .deck .side .mastery .score {
+        font-size: 50px; }
