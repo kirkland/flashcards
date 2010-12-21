@@ -7,6 +7,8 @@
     margin: 5px;
     border: 1px solid black;
     float: left; }
+    #quiz_index .deck a:link, #quiz_index .deck a:visited {
+      color: black; }
     #quiz_index .deck .title {
       text-align: center;
       height: 40px;
