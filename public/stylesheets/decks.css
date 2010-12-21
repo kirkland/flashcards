@@ -1,7 +1,7 @@
 #quiz_index {
   margin-top: 20px; }
   #quiz_index .deck {
-    background: pink;
+    background: #ccccff;
     width: 450px;
     height: 200px;
     margin: 5px;
@@ -18,10 +18,12 @@
       font-weight: bold; }
     #quiz_index .deck .side {
       float: left;
-      width: 225px;
+      width: 205px;
       text-align: center;
-      padding-top: 10px;
-      height: 150px; }
+      padding: 10px;
+      height: 110px; }
+      #quiz_index .deck .side:hover {
+        background: #b3b3ff; }
       #quiz_index .deck .side .bestworst {
         margin-top: 30px; }
         #quiz_index .deck .side .bestworst .score {
