@@ -34,6 +34,10 @@ class UsersController < ApplicationController
     @quizzes = @user.quizzes.sort_by(&:created_at).reverse
   end
 
+  def quiz_details
+    render :text => "hey"
+  end
+
   private
 
   def find_user

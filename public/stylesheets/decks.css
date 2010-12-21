@@ -24,6 +24,12 @@
       text-align: center;
       padding: 10px;
       height: 110px; }
+      #quiz_index .deck .side .details {
+        font-size: 12px;
+        float: right;
+        display: none; }
+      #quiz_index .deck .side:hover .details {
+        display: inline; }
       #quiz_index .deck .side:hover {
         background: #b3b3ff; }
       #quiz_index .deck .side .bestworst {
