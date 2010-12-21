@@ -2,18 +2,25 @@
   - @decks.each do |deck|
     .deck
       .title=deck.title
+      .card_count="#{deck.cards.count} Cards"
       .side
         %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'front')}
           %div="#{deck.front_description} -> #{deck.back_description}"
-          .mastery 
-            Mastery
-            .score
-              =current_user.present? ? current_user.deck_mastery(deck.id, false) : 0
+          -if current_user.present?
+            .bestworst 
+              Best/Worst Last 5
+              .score
+                =current_user.best_score(deck.id, false)
+                \/
+                =current_user.worst_score(deck.id, false)
       .side
         %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back')}
           %div="#{deck.back_description} -> #{deck.front_description}"
-          .mastery 
-            Mastery
-            .score
-              =current_user.present? ? current_user.deck_mastery(deck.id, true) : 0
+          -if current_user.present?
+            .bestworst 
+              Best/Worst Last 5
+              .score
+                =current_user.best_score(deck.id, true)
+                \/
+                =current_user.worst_score(deck.id, true)
 .clear

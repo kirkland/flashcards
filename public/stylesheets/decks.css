@@ -12,13 +12,19 @@
       height: 40px;
       line-height: 40px;
       font-weight: bold; }
+    #quiz_index .deck .card_count {
+      text-align: center;
+      height: 30px;
+      font-weight: bold; }
     #quiz_index .deck .side {
       float: left;
       width: 225px;
       text-align: center;
       padding-top: 10px;
       height: 150px; }
-      #quiz_index .deck .side .mastery {
+      #quiz_index .deck .side .bestworst {
         margin-top: 30px; }
-        #quiz_index .deck .side .mastery .score {
-          font-size: 50px; }
+        #quiz_index .deck .side .bestworst .score {
+          font-size: 20px;
+          font-weight: bold;
+          margin-top: 10px; }
