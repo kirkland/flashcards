@@ -13,8 +13,9 @@
                 =current_user.best_score(deck.id, false)
                 \/
                 =current_user.worst_score(deck.id, false)
-        .details
-          =link_to "Details", quiz_details_user_path(current_user)
+        -if current_user.present?
+          .details
+            =link_to "Details", quiz_details_user_path(current_user)
       .side
         %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back')}
           %div="#{deck.back_description} -> #{deck.front_description}"
@@ -25,6 +26,7 @@
                 =current_user.best_score(deck.id, true)
                 \/
                 =current_user.worst_score(deck.id, true)
-        .details
-          =link_to "Details", quiz_details_user_path(current_user)
+        -if current_user.present?
+          .details
+            =link_to "Details", quiz_details_user_path(current_user)
 .clear
