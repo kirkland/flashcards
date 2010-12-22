@@ -93,11 +93,13 @@ h1 {
   width: 50px; }
 
 #flash-notice, #flash-error {
-  width: 940px;
+  width: 100%;
   min-height: 50px;
-  padding: 10px;
   border: 1px black dashed;
   margin-bottom: 20px; }
+  #flash-notice ul, #flash-error ul {
+    margin-left: 10px;
+    margin-right: 10px; }
 
 #flash-notice {
   background-color: #e0f8f7; }

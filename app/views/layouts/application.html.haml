@@ -18,11 +18,11 @@
         #flash-error
           %ul
             - flash[:error].each do |e|
-              %li
-                = e
+              %li= e
       - if flash[:notice].present?
         #flash-notice
-          = flash[:notice]
+          %ul
+            %li= flash[:notice]
       #site_nav
         =link_to "Home", root_path
         |
