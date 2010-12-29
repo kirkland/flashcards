@@ -24,7 +24,8 @@ class Quiz < ActiveRecord::Base
         :back => back_to_front ? qc.front : qc.back,
         :correct => qc.correct,
         :visited => qc.visited,
-        :id => qc.id
+        :id => qc.id,
+        :sound_url => qc.card.sound_url
       }
     end
     { :quiz_cards => cards_data, :active_card_id => active_card_id}
