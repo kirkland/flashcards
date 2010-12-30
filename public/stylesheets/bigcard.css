@@ -40,5 +40,9 @@
       font-size: 20px;
       line-height: 75px;
       text-align: center; }
-  #quiz .sound {
-    display: none; }
+  #quiz #sound {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px; }

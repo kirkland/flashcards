@@ -38,6 +38,11 @@ Quiz = Class.create({
 
   refresh: function() {
     $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
+    if (null != this.active_card().sound_url) {
+      $('sound').show();
+    } else {
+      $('sound').hide();
+    }
   },
 
   update_db: function (params) {
