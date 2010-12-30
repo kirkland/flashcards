@@ -40,3 +40,5 @@
       font-size: 20px;
       line-height: 75px;
       text-align: center; }
+  #quiz .sound {
+    display: none; }
