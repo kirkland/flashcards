@@ -39,6 +39,9 @@ Quiz = Class.create({
   refresh: function() {
     $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
     if (null != this.active_card().sound_url) {
+      // for some reason, this only works when i first hide, then show this
+      $('sound').hide();
+      $$('#sound embed')[0].writeAttribute('flashvars', 'audioUrl=' + this.active_card().sound_url)
       $('sound').show();
     } else {
       $('sound').hide();
