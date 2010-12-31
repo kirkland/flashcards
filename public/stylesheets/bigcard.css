@@ -32,6 +32,8 @@
     margin-left: auto;
     width: 310px;
     height: 75px; }
+    #quiz .correct_links #correct_link {
+      background-image: url("/images/correct.png"); }
     #quiz .correct_links div {
       float: left;
       height: 75px;
