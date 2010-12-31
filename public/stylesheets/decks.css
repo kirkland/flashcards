@@ -32,9 +32,9 @@
         display: inline; }
       #quiz_index .deck .side:hover {
         background: #6e41b8; }
-      #quiz_index .deck .side .bestworst {
+      #quiz_index .deck .side .scores {
         margin-top: 30px; }
-        #quiz_index .deck .side .bestworst .score {
+        #quiz_index .deck .side .scores .score {
           font-size: 20px;
           font-weight: bold;
           margin-top: 10px; }

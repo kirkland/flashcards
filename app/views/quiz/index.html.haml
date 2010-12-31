@@ -6,13 +6,11 @@
       .side
         %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'front')}
           %div="#{deck.front_description} -> #{deck.back_description}"
-          .bestworst 
+          .scores
             -if current_user.present?
-              Best/Worst Last 5
+              Last 5 Trials
               .score
-                =current_user.best_score(deck.id, false)
-                \/
-                =current_user.worst_score(deck.id, false)
+                =current_user.last_five_scores(deck.id, false)
             -else
               (Log In To Track Your Progress)
         -if current_user.present?
@@ -21,13 +19,11 @@
       .side
         %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back')}
           %div="#{deck.back_description} -> #{deck.front_description}"
-          .bestworst 
+          .scores
             -if current_user.present?
-              Best/Worst Last 5
+              Last 5 Trials
               .score
-                =current_user.best_score(deck.id, true)
-                \/
-                =current_user.worst_score(deck.id, true)
+                =current_user.last_five_scores(deck.id, true)
             -else
               (Log In To Track Your Progress)
         -if current_user.present?
