@@ -6,3 +6,4 @@ gem 'haml', '3.0.22'
 gem 'authlogic', :git => "git://github.com/binarylogic/authlogic.git"
 gem 'taps', :git => "git://github.com/ricardochimal/taps.git"
 gem 'inherited_resources'
+gem 'paperclip'
