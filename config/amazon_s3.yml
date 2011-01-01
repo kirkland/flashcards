@@ -1,0 +1,18 @@
+defaults: &defaults
+  access_key_id: AKIAJPIXWB76XWKAW5KQ
+  secret_access_key: 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
+  bucket: thai-flashcards
+  max_file_size: 10485760
+  acl: public-read
+
+development:
+  <<: *defaults
+  bucket: thai-flashcards-dev
+    
+production:
+  <<: *defaults
+  bucket: thai-flashcards
+
+test:
+  <<: *defaults
+  bucket: thai-flashcards-test
