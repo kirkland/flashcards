@@ -22,5 +22,8 @@ Flashcards::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  S3_CREDENTIALS = {:access_key_id => 'AKIAJPIXWB76XWKAW5KQ', :secret_access_key => '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'}
+  S3_BUCKET = 'thai-flashcards-dev'
 end
 
