@@ -25,7 +25,7 @@ class Quiz < ActiveRecord::Base
         :correct => qc.correct,
         :visited => qc.visited,
         :id => qc.id,
-        :sound_url => qc.card.sound_url
+        :sound_url => qc.card.sound.url
       }
     end
     { :quiz_cards => cards_data, :active_card_id => active_card_id}
