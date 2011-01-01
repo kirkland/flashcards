@@ -1,5 +1,5 @@
 %h1 Editing deck
-- form_for [:admin, @deck] do |f|
+- form_for [:admin, @deck], :html => {:multipart => true} do |f|
   - if @deck.errors.any?
     #error_explanation
       %h2

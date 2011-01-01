@@ -40,15 +40,17 @@ Quiz = Class.create({
     $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
 
     var new_url = 'audioUrl=' + this.active_card().sound_url;
-    if (this.sound_url != new_url) {
-      this.sound_url = new_url;
-
+    if (new_url.match(/missing.png$/) || this.sound_url != new_url) {
       if (null != $('sound_embed')) {
         $('sound_embed').remove();
       }
+    }
 
+    if (!new_url.match(/missing.png$/) && this.sound_url != new_url) {
       $('sound').insert({bottom: new Element('embed', {id: 'sound_embed', height: "27", width: "400", src: "http://www.google.com/reader/ui/3523697345-audio-player.swf", pluginspage: "http://www.macromedia.com/go/getflashplayer", flashvars: new_url})});
     }
+
+    this.sound_url = new_url;
   },
 
   update_db: function (params) {

@@ -69,6 +69,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    paperclip (2.3.1.1)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -110,6 +111,7 @@ DEPENDENCIES
   aws-s3
   haml (= 3.0.22)
   inherited_resources
+  paperclip
   rails (= 3.0.0)
   sqlite3-ruby
   taps!
