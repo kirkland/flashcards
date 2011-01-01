@@ -2,6 +2,7 @@
   =fields_for "deck[card_attributes][]", card do |cf|
     = cf.text_field :front, :index => nil
     = cf.text_field :back, :index => nil
+    = cf.file_field :sound, :index => nil
     - if card.new_record?
       = link_to_function "remove", "this.up('.card').remove()"
     - else
