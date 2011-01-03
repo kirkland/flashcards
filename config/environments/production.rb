@@ -46,4 +46,7 @@ Flashcards::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  S3_CREDENTIALS = {:access_key_id => 'AKIAJPIXWB76XWKAW5KQ', :secret_access_key => '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'}
+  S3_BUCKET = 'thai-flashcards'
 end
