@@ -32,4 +32,7 @@ Flashcards::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  S3_CREDENTIALS = {:access_key_id => 'AKIAJPIXWB76XWKAW5KQ', :secret_access_key => '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'}
+  S3_BUCKET = 'thai-flashcards-test'
 end
