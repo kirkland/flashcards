@@ -35,7 +35,8 @@ class UsersController < ApplicationController
   end
 
   def quiz_details
-    render :text => "hey"
+    @quizzes = @user.quizzes.where(:deck_id => params[:deck_id], :back_to_front => params[:back_to_front].present?).sort_by(&:created_at).reverse
+    render :profile
   end
 
   private

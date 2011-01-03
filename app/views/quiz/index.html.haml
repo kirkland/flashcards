@@ -15,7 +15,7 @@
               (Log In To Track Your Progress)
         -if current_user.present?
           .details
-            =link_to "Details", quiz_details_user_path(current_user)
+            =link_to "Details", quiz_details_user_path(current_user, :deck_id => deck.id)
       .side
         %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back')}
           %div="#{deck.back_description} -> #{deck.front_description}"
@@ -28,5 +28,5 @@
               (Log In To Track Your Progress)
         -if current_user.present?
           .details
-            =link_to "Details", quiz_details_user_path(current_user)
+            =link_to "Details", quiz_details_user_path(current_user, :deck_id => deck.id, :back_to_front => 1)
 .clear
