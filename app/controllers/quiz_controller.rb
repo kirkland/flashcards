@@ -19,6 +19,10 @@ class QuizController < ApplicationController
   end
 
   def update_quiz_card
+    if (@quiz.user != current_user)
+      render :json => @quiz.quiz_status.merge({:error => "This quiz does not belong to you, and cannot be updated. Please log in."}) and return
+    end
+
     if params[:active_card_id].present?
       @quiz.update_attribute(:active_card_id, params[:active_card_id])
       QuizCard.find(params[:active_card_id]).update_attribute(:visited, true)

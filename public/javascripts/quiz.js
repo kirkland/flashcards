@@ -61,6 +61,9 @@ Quiz = Class.create({
       parameters: params,
       onSuccess: function (resp) {
         this.quiz_status = resp.responseJSON;
+        if (quiz_status.error != undefined && $('flash-error') == undefined) {
+          $('quiz').insert({top: new Element('div', {'id': 'flash-error'}).insert(new Element('ul').insert(new Element('li').update(quiz_status.error)))});
+        }
         $('cards_correct').update(this.quiz_status.num_correct);
         $('cards_answered').update(this.quiz_status.num_answered);
         $('cards_remaining').update(this.quiz_status.num_remaining);
