@@ -19,6 +19,7 @@ class Deck < ActiveRecord::Base
     new_cards = text.split("\n")
     new_cards.each do |card|
       front, back = card.split("|")
+      back.sub!(/\r/, "")
       cards.build(:deck => self, :front => front, :back => back)
     end
   end
