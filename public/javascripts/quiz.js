@@ -37,32 +37,34 @@ Quiz = Class.create({
   },
 
   refresh: function() {
-    $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
+    setTimeout(function () {
+      $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
 
-    // show a selected button if we know correct/incorrect
-    if (this.active_card().correct == true ) {
-      $('correct_link').addClassName('selected');
-      $('incorrect_link').removeClassName('selected');
-    } else if (this.active_card().correct == false) {
-      $('incorrect_link').addClassName('selected');
-      $('correct_link').removeClassName('selected');
-    } else {
-      $('correct_link').removeClassName('selected');
-      $('incorrect_link').removeClassName('selected');
-    }
-
-    var new_url = 'audioUrl=' + this.active_card().sound_url;
-    if (new_url.match(/missing.png$/) || this.sound_url != new_url) {
-      if (null != $('sound_embed')) {
-        $('sound_embed').remove();
+      // show a selected button if we know correct/incorrect
+      if (this.active_card().correct == true ) {
+        $('correct_link').addClassName('selected');
+        $('incorrect_link').removeClassName('selected');
+      } else if (this.active_card().correct == false) {
+        $('incorrect_link').addClassName('selected');
+        $('correct_link').removeClassName('selected');
+      } else {
+        $('correct_link').removeClassName('selected');
+        $('incorrect_link').removeClassName('selected');
       }
-    }
 
-    if (!new_url.match(/missing.png$/) && this.sound_url != new_url) {
-      $('sound').insert({bottom: new Element('embed', {id: 'sound_embed', height: "27", width: "400", src: "http://www.google.com/reader/ui/3523697345-audio-player.swf", pluginspage: "http://www.macromedia.com/go/getflashplayer", flashvars: new_url})});
-    }
+      var new_url = 'audioUrl=' + this.active_card().sound_url;
+      if (new_url.match(/missing.png$/) || this.sound_url != new_url) {
+        if (null != $('sound_embed')) {
+          $('sound_embed').remove();
+        }
+      }
 
-    this.sound_url = new_url;
+      if (!new_url.match(/missing.png$/) && this.sound_url != new_url) {
+        $('sound').insert({bottom: new Element('embed', {id: 'sound_embed', height: "27", width: "400", src: "http://www.google.com/reader/ui/3523697345-audio-player.swf", pluginspage: "http://www.macromedia.com/go/getflashplayer", flashvars: new_url})});
+      }
+
+      this.sound_url = new_url;
+    }.bind(this), 500);
   },
 
   update_db: function (params) {
@@ -118,6 +120,17 @@ Quiz = Class.create({
   mark_correct: function () {
     this.active_card().correct = true;
     var correct_card = this.active_card().id;
+    // show a selected button if we know correct/incorrect
+    if (this.active_card().correct == true ) {
+      $('correct_link').addClassName('selected');
+      $('incorrect_link').removeClassName('selected');
+    } else if (this.active_card().correct == false) {
+      $('incorrect_link').addClassName('selected');
+      $('correct_link').removeClassName('selected');
+    } else {
+      $('correct_link').removeClassName('selected');
+      $('incorrect_link').removeClassName('selected');
+    }
     if (this.active_card_index == this.quiz_cards.length - 1) {
       alert("End of the deck!");
     } else {
@@ -130,6 +143,17 @@ Quiz = Class.create({
 
   mark_incorrect: function () {
     this.active_card().correct = false;
+    // show a selected button if we know correct/incorrect
+    if (this.active_card().correct == true ) {
+      $('correct_link').addClassName('selected');
+      $('incorrect_link').removeClassName('selected');
+    } else if (this.active_card().correct == false) {
+      $('incorrect_link').addClassName('selected');
+      $('correct_link').removeClassName('selected');
+    } else {
+      $('correct_link').removeClassName('selected');
+      $('incorrect_link').removeClassName('selected');
+    }
     var incorrect_card = this.active_card().id;
     if (this.active_card_index == this.quiz_cards.length - 1) {
       alert("End of the deck!");
