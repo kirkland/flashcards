@@ -39,6 +39,18 @@ Quiz = Class.create({
   refresh: function() {
     $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
 
+    // show a selected button if we know correct/incorrect
+    if (this.active_card().correct == true ) {
+      $('correct_link').addClassName('selected');
+      $('incorrect_link').removeClassName('selected');
+    } else if (this.active_card().correct == false) {
+      $('incorrect_link').addClassName('selected');
+      $('correct_link').removeClassName('selected');
+    } else {
+      $('correct_link').removeClassName('selected');
+      $('incorrect_link').removeClassName('selected');
+    }
+
     var new_url = 'audioUrl=' + this.active_card().sound_url;
     if (new_url.match(/missing.png$/) || this.sound_url != new_url) {
       if (null != $('sound_embed')) {
