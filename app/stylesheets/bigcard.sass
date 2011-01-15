@@ -35,11 +35,15 @@
       background-image: url("/images/correct.png")
       margin-right: 5px
       &:hover, &.selected
+        background-image: url("/images/correct_hover.png")
+      &.selected
         background-image: url("/images/correct_selected.png")
     #incorrect_link
       background-image: url("/images/incorrect.png")
       margin-left: 5px
-      &:hover, &.selected
+      &:hover
+        background-image: url("/images/incorrect_hover.png")
+      &.selected
         background-image: url("/images/incorrect_selected.png")
     div
       float: left

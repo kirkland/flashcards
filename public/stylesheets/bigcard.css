@@ -36,11 +36,15 @@
       background-image: url("/images/correct.png");
       margin-right: 5px; }
       #quiz .correct_links #correct_link:hover, #quiz .correct_links #correct_link.selected {
+        background-image: url("/images/correct_hover.png"); }
+      #quiz .correct_links #correct_link.selected {
         background-image: url("/images/correct_selected.png"); }
     #quiz .correct_links #incorrect_link {
       background-image: url("/images/incorrect.png");
       margin-left: 5px; }
-      #quiz .correct_links #incorrect_link:hover, #quiz .correct_links #incorrect_link.selected {
+      #quiz .correct_links #incorrect_link:hover {
+        background-image: url("/images/incorrect_hover.png"); }
+      #quiz .correct_links #incorrect_link.selected {
         background-image: url("/images/incorrect_selected.png"); }
     #quiz .correct_links div {
       float: left;
