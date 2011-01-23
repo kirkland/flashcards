@@ -3,7 +3,7 @@ Review = Class.create({
     this.cards = cards;
     this.show_side = show_side;
     this.front_showing = show_side != "back";
-    this.active_card_index = 1;
+    this.active_card_index = 0;
 
     if (this.front_showing == true) {
       $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
