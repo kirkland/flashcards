@@ -44,4 +44,14 @@ class Deck < ActiveRecord::Base
       end
     end
   end
+
+  def review_data
+    cards.collect do |c|
+      {
+        :front => c.front,
+        :back => c.back,
+        :sound_url => c.sound.url
+      }
+    end
+  end
 end

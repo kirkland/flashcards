@@ -21,6 +21,8 @@ Flashcards::Application.routes.draw do
     end
   end
 
+  resources :review, :only => [:index, :show]
+
   root :to => 'quiz#index'
 
   namespace :admin do
