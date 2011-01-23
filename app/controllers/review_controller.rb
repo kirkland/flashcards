@@ -5,6 +5,6 @@ class ReviewController < ApplicationController
 
   def show
     @deck_data = Deck.find(params[:id]).review_data.to_json
-    @show = params[:show]
+    @show = params[:show].present? ? params[:show] : "front"
   end
 end

@@ -1,11 +1,18 @@
 Review = Class.create({
   initialize: function(cards, show_side) {
     this.cards = cards;
+    this.show_side = show_side;
     this.front_showing = show_side != "back";
     this.active_card_index = 1;
 
-    $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
-    $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
+    if (this.front_showing == true) {
+      $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
+      $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
+    } else {
+      $('quiz_card').observe('mouseover', this.flip_card_front.bindAsEventListener(this));
+      $('quiz_card').observe('mouseout', this.flip_card_back.bindAsEventListener(this));
+    }
+
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
     $('left_arrow').observe('click', this.prev_card.bindAsEventListener(this));
 
@@ -47,7 +54,7 @@ Review = Class.create({
     if (this.active_card_index == this.cards.length - 1) {
       alert("End of the deck!");
     } else {
-      this.front_showing = true;
+      this.front_showing = this.show_side == "front";
       this.active_card_index += 1;
       this.refresh();
     }
@@ -57,7 +64,7 @@ Review = Class.create({
     if (this.active_card_index == 0) {
       alert("Beginning of deck!");
     } else {
-      this.front_showing = true;
+      this.front_showing = this.show_side == "front";
       this.active_card_index -= 1;
       this.refresh();
     }
