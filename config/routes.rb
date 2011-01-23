@@ -23,7 +23,7 @@ Flashcards::Application.routes.draw do
 
   resources :review, :only => [:index, :show]
 
-  root :to => 'quiz#index'
+  root :to => 'review#index'
 
   namespace :admin do
     get '/' => 'dashboard#index'

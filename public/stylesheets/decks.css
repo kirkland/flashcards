@@ -1,3 +1,7 @@
+.index_title {
+  text-align: center;
+  margin-top: 10px; }
+
 #quiz_index {
   margin-top: 20px; }
   #quiz_index .deck {

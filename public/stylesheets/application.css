@@ -116,3 +116,6 @@ h1 {
     border-width: 1px;
     border-style: solid;
     padding: 5px; }
+
+#site_nav {
+  text-align: center; }
