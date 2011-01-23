@@ -14,6 +14,7 @@ Review = Class.create({
     }
 
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
+    $('quiz_card_content').observe('click', this.next_card.bindAsEventListener(this));
     $('left_arrow').observe('click', this.prev_card.bindAsEventListener(this));
 
     this.refresh();

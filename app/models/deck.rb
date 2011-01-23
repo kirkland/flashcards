@@ -52,6 +52,6 @@ class Deck < ActiveRecord::Base
         :back => c.back,
         :sound_url => c.sound.url
       }
-    end
+    end.shuffle
   end
 end
