@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  has_mobile_fu
+
   helper_method :current_user
 
   private

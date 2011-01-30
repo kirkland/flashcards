@@ -1,6 +1,6 @@
 #quiz
   .flip_message
-    -if @browser_type == "mobile"
+    -if in_mobile_view?
       Click On Card to Flip
     -else
       Hover Over Card to Flip
@@ -14,4 +14,4 @@
   #sound
 
 - content_for :js do
-  review = new Review(#{@deck_data.html_safe}, "#{@show}", "#{@browser_type}");
+  review = new Review(#{@deck_data.html_safe}, "#{@show}", "#{in_mobile_view? ? 'phone' : 'regular'}");
