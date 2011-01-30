@@ -8,6 +8,7 @@ Review = Class.create({
     if (browser_type == 'phone') {
       $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
     } else {
+      $('quiz_card_content').observe('click', this.next_card.bindAsEventListener(this));
       if (this.front_showing == true) {
         $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
         $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
@@ -18,7 +19,6 @@ Review = Class.create({
     }
 
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
-    $('quiz_card_content').observe('click', this.next_card.bindAsEventListener(this));
     $('left_arrow').observe('click', this.prev_card.bindAsEventListener(this));
 
     this.refresh();
