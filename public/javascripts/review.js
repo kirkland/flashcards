@@ -1,16 +1,20 @@
 Review = Class.create({
-  initialize: function(cards, show_side) {
+  initialize: function(cards, show_side, browser_type) {
     this.cards = cards;
     this.show_side = show_side;
     this.front_showing = show_side != "back";
     this.active_card_index = 0;
 
-    if (this.front_showing == true) {
-      $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
-      $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
+    if (browser_type == 'phone') {
+      $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
     } else {
-      $('quiz_card').observe('mouseover', this.flip_card_front.bindAsEventListener(this));
-      $('quiz_card').observe('mouseout', this.flip_card_back.bindAsEventListener(this));
+      if (this.front_showing == true) {
+        $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
+        $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
+      } else {
+        $('quiz_card').observe('mouseover', this.flip_card_front.bindAsEventListener(this));
+        $('quiz_card').observe('mouseout', this.flip_card_back.bindAsEventListener(this));
+      }
     }
 
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
@@ -48,6 +52,11 @@ Review = Class.create({
 
   flip_card_back: function() {
     this.front_showing = false;
+    this.refresh();
+  },
+
+  flip_card: function() {
+    this.front_showing = !this.front_showing;
     this.refresh();
   },
 
