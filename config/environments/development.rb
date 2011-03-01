@@ -25,5 +25,9 @@ Flashcards::Application.configure do
 
   S3_CREDENTIALS = {:access_key_id => 'AKIAJPIXWB76XWKAW5KQ', :secret_access_key => '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'}
   S3_BUCKET = 'thai-flashcards-dev'
+
+  # refresh sass on every request
+  Sass::Plugin.options[:always_update] = true
+  Sass::Plugin.options[:template_location] = 'app/stylesheets'
 end
 
