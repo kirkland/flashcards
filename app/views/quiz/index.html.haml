@@ -3,7 +3,6 @@
   - @decks.each do |deck|
     .deck
       .title=deck.title
-      .card_count="#{deck.cards.count} Cards"
       .count_and_icon
         .card_count="#{deck.cards.count} Cards"
         -if deck.has_sound?
