@@ -2,6 +2,8 @@
 #decks_index
   - @decks.each do |deck|
     .deck
+      -if deck.has_sound?
+        .speaker=image_tag "speaker.png", :width => 30, :height => 30
       .deck_title=deck.title
       .card_count="#{deck.cards.count} Cards"
       .deck_side
