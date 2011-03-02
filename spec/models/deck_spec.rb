@@ -6,14 +6,13 @@ describe Deck do
 
   describe "#review_data" do
     before(:each) do
-      @deck = Factory(:deck)
-      @card = Factory(:card, :deck_id => @deck.id)
+      @deck = Factory(:deck, :bulk_cards => "hey front|hey back")
     end
 
     it "should return an array of a certain type of hash" do
       data = @deck.review_data
-      data.first[:front].should == @card.front
-      data.first[:back].should == @card.back
+      data.first[:front].should == "hey front"
+      data.first[:back].should == "hey back"
     end
   end
 end

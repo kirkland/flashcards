@@ -13,4 +13,5 @@ group :test, :development do
   gem "rspec-rails", "2.3.1"
   gem 'capybara'
   gem 'shoulda'
+  gem 'factory_girl_rails'
 end
