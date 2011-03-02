@@ -4,3 +4,8 @@ Factory.define :deck do |f|
   d.back_description "The back description"
   d.active true
 end
+
+Factory.define :card do |f|
+  c.front "front of card"
+  c.back "back of card"
+end
