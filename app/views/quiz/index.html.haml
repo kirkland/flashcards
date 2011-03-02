@@ -1,36 +1,24 @@
 %h1.index_title  Quiz Mode
-#quiz_index
+#decks_index
   - @decks.each do |deck|
     .deck
-      .title=deck.title
-      .count_and_icon
+      .deck_title=deck.title
+      .deck_info
         .card_count="#{deck.cards.count} Cards"
         -if deck.has_sound?
           .speaker=image_tag "speaker.png", :width => 20, :height => 20
-      .side
-        %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'front')}
-          %div="#{deck.front_description} -> #{deck.back_description}"
-          .scores
-            -if current_user.present?
-              Last 5 Trials
-              .score
-                =current_user.last_five_scores(deck.id, false)
-            -else
-              (Log In To Track Your Progress)
-        -if current_user.present?
-          .details
-            =link_to "Details", quiz_details_user_path(current_user, :deck_id => deck.id)
-      .side
-        %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back')}
-          %div="#{deck.back_description} -> #{deck.front_description}"
-          .scores
-            -if current_user.present?
-              Last 5 Trials
-              .score
-                =current_user.last_five_scores(deck.id, true)
-            -else
-              (Log In To Track Your Progress)
-        -if current_user.present?
-          .details
-            =link_to "Details", quiz_details_user_path(current_user, :deck_id => deck.id, :back_to_front => 1)
+      .deck_side
+        .deck_side_description
+          %div="#{deck.front_description}"
+        .review_link
+          =link_to 'Review', review_path(deck.id)
+        .quiz_link
+          =link_to 'Quiz', new_quiz_path(:deck_id => deck.id)
+      .deck_side
+        .deck_side_description
+          %div="#{deck.back_description}"
+        .review_link
+          =link_to 'Review', review_path(deck.id, :show => 'back')
+        .quiz_link
+          =link_to 'Quiz', new_quiz_path(:deck_id => deck.id, :show => 'back')
 .clear
