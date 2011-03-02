@@ -31,12 +31,23 @@
     margin-right: 10px;
     height: 120px;
     text-align: center; }
-    #decks_index .deck .deck_side .deck_side_description, #decks_index .deck .deck_side .review_link, #decks_index .deck .deck_side .quiz_link {
+    #decks_index .deck .deck_side .deck_side_description {
       height: 40px;
       line-height: 40px; }
     #decks_index .deck .deck_side .deck_links {
+      height: 80px;
       border: 1px solid;
-      background: #583492; }
+      background: #583492;
+      border-radius: 10px; }
+      #decks_index .deck .deck_side .deck_links a {
+        color: white; }
+    #decks_index .deck .deck_side .review_link, #decks_index .deck .deck_side .quiz_link {
+      width: 49%;
+      float: left;
+      height: 80px;
+      line-height: 80px; }
+    #decks_index .deck .deck_side .quiz_link {
+      border-left: 1px black solid; }
 
 #quiz_index {
   margin-top: 20px; }
