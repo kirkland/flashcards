@@ -4,8 +4,10 @@
     .deck
       .title=deck.title
       .card_count="#{deck.cards.count} Cards"
-      -if deck.has_sound?
-        .speaker=image_tag "speaker.png", :width => 20, :height => 20
+      .count_and_icon
+        .card_count="#{deck.cards.count} Cards"
+        -if deck.has_sound?
+          .speaker=image_tag "speaker.png", :width => 20, :height => 20
       .side
         %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'front')}
           %div="#{deck.front_description} -> #{deck.back_description}"
