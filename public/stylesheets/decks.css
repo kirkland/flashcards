@@ -2,6 +2,29 @@
   text-align: center;
   margin-top: 10px; }
 
+#decks_index .deck {
+  width: 450px;
+  height: 200px;
+  margin: 5px;
+  border: 1px solid black;
+  float: left;
+  background: #8a64c8; }
+  #decks_index .deck .deck_title {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold; }
+  #decks_index .deck .deck_info {
+    height: 40px; }
+    #decks_index .deck .deck_info .info_container {
+      height: 40px;
+      margin: 0 auto;
+      width: 100px; }
+    #decks_index .deck .deck_info .card_count, #decks_index .deck .deck_info .speaker {
+      float: left; }
+    #decks_index .deck .deck_info .speaker {
+      margin-left: 5px; }
+
 #quiz_index {
   margin-top: 20px; }
   #quiz_index .deck {
