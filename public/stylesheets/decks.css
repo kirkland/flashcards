@@ -14,16 +14,9 @@
     height: 40px;
     line-height: 40px;
     font-weight: bold; }
-  #decks_index .deck .deck_info {
-    height: 40px; }
-    #decks_index .deck .deck_info .info_container {
-      height: 40px;
-      margin: 0 auto;
-      width: 100px; }
-    #decks_index .deck .deck_info .card_count, #decks_index .deck .deck_info .speaker {
-      float: left; }
-    #decks_index .deck .deck_info .speaker {
-      margin-left: 5px; }
+  #decks_index .deck .card_count {
+    height: 40px;
+    text-align: center; }
 
 #quiz_index {
   margin-top: 20px; }

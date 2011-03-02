@@ -3,11 +3,7 @@
   - @decks.each do |deck|
     .deck
       .deck_title=deck.title
-      .deck_info
-        .info_container
-          .card_count="#{deck.cards.count} Cards"
-          -if deck.has_sound?
-            .speaker=image_tag "speaker.png", :width => 20, :height => 20
+      .card_count="#{deck.cards.count} Cards"
       .deck_side
         .deck_side_description
           %div="#{deck.front_description}"
