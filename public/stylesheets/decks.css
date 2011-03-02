@@ -35,7 +35,8 @@
       height: 40px;
       line-height: 40px; }
     #decks_index .deck .deck_side .deck_links {
-      border: 1px solid; }
+      border: 1px solid;
+      background: #583492; }
 
 #quiz_index {
   margin-top: 20px; }
