@@ -15,7 +15,7 @@
     line-height: 40px;
     font-weight: bold; }
   #decks_index .deck .card_count {
-    height: 40px;
+    height: 25px;
     text-align: center; }
   #decks_index .deck .speaker {
     position: relative;
@@ -24,6 +24,18 @@
     width: 30px;
     left: 410px;
     top: 5px; }
+  #decks_index .deck .deck_side {
+    float: left;
+    width: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 120px;
+    text-align: center; }
+    #decks_index .deck .deck_side .deck_side_description, #decks_index .deck .deck_side .review_link, #decks_index .deck .deck_side .quiz_link {
+      height: 40px;
+      line-height: 40px; }
+    #decks_index .deck .deck_side .deck_links {
+      border: 1px solid; }
 
 #quiz_index {
   margin-top: 20px; }
