@@ -54,4 +54,9 @@ class Deck < ActiveRecord::Base
       }
     end.shuffle
   end
+
+  # eh, just look at first card, and assume a deck either has all sounds or no sounds
+  def has_sound?
+    cards.first.sound_file_name.present?
+  end
 end

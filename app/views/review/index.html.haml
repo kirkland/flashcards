@@ -3,7 +3,10 @@
   - @decks.each do |deck|
     .deck
       .title=deck.title
-      .card_count="#{deck.cards.count} Cards"
+      .count_and_icon
+        .card_count="#{deck.cards.count} Cards"
+        -if deck.has_sound?
+          .speaker=image_tag "speaker.png", :width => 20, :height => 20
       .side
         %a{:href => review_path(deck.id)}
           %div="#{deck.front_description} -> #{deck.back_description}"
