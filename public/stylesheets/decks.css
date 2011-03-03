@@ -27,8 +27,8 @@
   #decks_index .deck .deck_side {
     float: left;
     width: 200px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
     height: 120px;
     text-align: center; }
     #decks_index .deck .deck_side .deck_side_description {
