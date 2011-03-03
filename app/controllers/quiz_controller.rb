@@ -6,6 +6,11 @@ class QuizController < ApplicationController
   end
 
   def new
+    if !current_user
+      flash[:error] = "Only registered users can take a quiz. Choose a deck to review, or select 'Register' or 'Log In' above"
+      redirect_to root_path and return
+    end
+
     @deck = Deck.find(params[:deck_id])
     @quiz = Quiz.create(:deck => @deck, :user => current_user, :back_to_front => params[:show] == 'back')
     @quiz.start_quiz
