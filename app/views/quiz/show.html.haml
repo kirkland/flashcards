@@ -12,7 +12,10 @@
       =@quiz.quiz_cards.length
 #quiz
   .flip_message
-    Hover Over Card to Flip
+    -if is_mobile?
+      Click On Card to Flip
+    -else
+      Hover Over Card to Flip
   #left_arrow.arrow.float
     =image_tag "arrow-blue-rounded-left.jpg", :width => 100, :height => 100
   #quiz_card.float
