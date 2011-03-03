@@ -18,8 +18,7 @@
       - if flash[:error].present?
         #flash-error
           %ul
-            - flash[:error].each do |e|
-              %li= e
+            %li= flash[:error]
       - if flash[:notice].present?
         #flash-notice
           %ul
