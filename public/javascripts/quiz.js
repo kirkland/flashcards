@@ -100,6 +100,11 @@ Quiz = Class.create({
     this.refresh();
   },
 
+  flip_card: function() {
+    this.front_showing = !this.front_showing;
+    this.refresh();
+  },
+
   next_card: function () {
     if (this.active_card_index == this.quiz_cards.length - 1) {
       alert("End of the deck!");
