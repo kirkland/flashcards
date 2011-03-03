@@ -13,7 +13,9 @@ Flashcards::Application.routes.draw do
 
   resources :cards
 
-  resources :quiz, :only => [:index, :new, :show] do
+  resources :decks, :only => [:index]
+
+  resources :quiz, :only => [:new, :show] do
     member do
       get :play
       get :card
@@ -21,9 +23,9 @@ Flashcards::Application.routes.draw do
     end
   end
 
-  resources :review, :only => [:index, :show]
+  resources :review, :only => [:show]
 
-  root :to => 'review#index'
+  root :to => 'decks#index'
 
   namespace :admin do
     get '/' => 'dashboard#index'
