@@ -10,16 +10,16 @@
         .deck_side_description
           %div="#{deck.front_description}"
         .deck_links
-          .review_link
-            =link_to 'Review', review_path(deck.id)
-          .quiz_link
-            =link_to 'Quiz', new_quiz_path(:deck_id => deck.id)
+          %a{:href => review_path(deck.id), :class => 'review_link'}
+            Review
+          %a{:href => new_quiz_path(:deck_id => deck.id), :class => 'quiz_link'}
+            Quiz
       .deck_side
         .deck_side_description
           %div="#{deck.back_description}"
         .deck_links
-          .review_link
-            =link_to 'Review', review_path(deck.id, :show => 'back')
-          .quiz_link
-            =link_to 'Quiz', new_quiz_path(:deck_id => deck.id, :show => 'back')
+          %a{:href => review_path(deck.id, :show => 'back'), :class => 'review_link'}
+            Review
+          %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back'), :class => 'quiz_link'}
+            Quiz
 .clear

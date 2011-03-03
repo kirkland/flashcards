@@ -32,17 +32,19 @@
     height: 120px;
     text-align: center; }
     #decks_index .deck .deck_side .deck_side_description {
-      height: 40px;
-      line-height: 40px; }
+      height: 25px;
+      line-height: 25px; }
     #decks_index .deck .deck_side .deck_links {
       height: 80px;
       border: 1px solid;
-      background: #583492;
-      border-radius: 10px; }
+      background: #6e41b8;
+      border-radius: 5px; }
       #decks_index .deck .deck_side .deck_links a {
         color: white; }
+        #decks_index .deck .deck_side .deck_links a:hover {
+          background: #583492; }
     #decks_index .deck .deck_side .review_link, #decks_index .deck .deck_side .quiz_link {
-      width: 49%;
+      width: 98px;
       float: left;
       height: 80px;
       line-height: 80px; }
