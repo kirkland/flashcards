@@ -20,8 +20,8 @@
   #decks_index .deck .speaker {
     position: relative;
     float: left;
-    height: 30px;
-    width: 30px;
+    height: 0px;
+    width: 0px;
     left: 410px;
     top: 5px; }
   #decks_index .deck .deck_side {
