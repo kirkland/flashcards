@@ -26,4 +26,4 @@
     #incorrect_link
 
 - content_for :js do
-  quiz = new Quiz(#{@quiz_data}, "#{update_quiz_card_quiz_path(@quiz.id)}");
+  quiz = new Quiz(#{@quiz_data}, "#{update_quiz_card_quiz_path(@quiz.id)}", "#{is_mobile? ? 'phone' : 'regular'}");

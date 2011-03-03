@@ -1,12 +1,17 @@
 Quiz = Class.create({
-  initialize: function(quiz_data, update_path) {
+  initialize: function(quiz_data, update_path, browser_type) {
     this.quiz_cards = quiz_data.quiz_cards;
     this.update_path = update_path;
     this.front_showing = true;
     this.active_card_index = this.find_active_card_index(quiz_data.active_card_id);
 
-    $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
-    $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
+    if (browser_type == 'phone') {
+      $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
+    } else {
+      $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
+      $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
+    }
+
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
     $('left_arrow').observe('click', this.prev_card.bindAsEventListener(this));
     $('correct_link').observe('click', this.mark_correct.bindAsEventListener(this));
