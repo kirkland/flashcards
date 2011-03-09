@@ -285,8 +285,7 @@ h1 {
           font-weight: bold;
           margin-top: 10px; }
 
-.review_message {
-  display: none;
+#review_message {
   border: dashed 1px blue;
   width: 400px;
   margin-left: auto;
