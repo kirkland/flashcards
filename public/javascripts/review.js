@@ -1,11 +1,11 @@
 Review = Class.create({
-  initialize: function(cards, show_side, browser_type) {
+  initialize: function(cards, show_side, mobile) {
     this.cards = cards;
     this.show_side = show_side;
     this.front_showing = show_side != "back";
     this.active_card_index = 0;
 
-    if (browser_type == 'phone') {
+    if (mobile) {
       $('quiz_card_content').observe('click', this.flip_card.bindAsEventListener(this));
     } else {
       $('quiz_card_content').observe('click', this.next_card.bindAsEventListener(this));
