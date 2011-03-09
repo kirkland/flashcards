@@ -1,8 +1,7 @@
 Review = Class.create({
   initialize: function(cards, mobile) {
     this.cards = cards;
-    this.side_showing = 'front';
-    this.front_showing = this.side_showing != "back";
+    this.front_showing = true;
     this.active_card_index = 0;
 
     if (mobile) {
@@ -59,7 +58,7 @@ Review = Class.create({
     if (this.active_card_index == this.cards.length - 1) {
       alert("End of the deck!");
     } else {
-      this.front_showing = this.side_showing == "front";
+      this.front_showing = this.front_showing = true;
       this.active_card_index += 1;
       this.refresh();
     }
@@ -69,7 +68,7 @@ Review = Class.create({
     if (this.active_card_index == 0) {
       alert("Beginning of deck!");
     } else {
-      this.front_showing = this.side_showing == "front";
+      this.front_showing = this.front_showing = true;
       this.active_card_index -= 1;
       this.refresh();
     }
