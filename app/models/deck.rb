@@ -45,11 +45,11 @@ class Deck < ActiveRecord::Base
     end
   end
 
-  def review_data
+  def review_data(show_back=false)
     cards.collect do |c|
       {
-        :front => c.front,
-        :back => c.back,
+        :front => show_back ? c.back : c.front,
+        :back => show_back ? c.front : c.back,
         :sound_url => c.sound.url
       }
     end.shuffle
