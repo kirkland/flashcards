@@ -127,7 +127,7 @@ h1 {
   clear: both; }
 
 #quiz {
-  margin-top: 50px;
+  margin-top: 20px;
   min-height: 600px; }
   #quiz .flip_message {
     font-size: 12px;
@@ -284,3 +284,13 @@ h1 {
           font-size: 20px;
           font-weight: bold;
           margin-top: 10px; }
+
+.review_message {
+  display: none;
+  border: dashed 1px blue;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 10px; }
