@@ -9,13 +9,8 @@ Review = Class.create({
       $('quiz_card_content').observe('click', this.flip_card.bindAsEventListener(this));
     } else {
       $('quiz_card_content').observe('click', this.next_card.bindAsEventListener(this));
-      if (this.front_showing == true) {
-        $('quiz_card_content').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
-        $('quiz_card_content').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
-      } else {
-        $('quiz_card_content').observe('mouseover', this.flip_card_front.bindAsEventListener(this));
-        $('quiz_card_content').observe('mouseout', this.flip_card_back.bindAsEventListener(this));
-      }
+      $('quiz_card_content').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
+      $('quiz_card_content').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
     }
 
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
