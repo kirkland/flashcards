@@ -1,0 +1,15 @@
+- if flash[:error].present?
+  #flash-error
+    %ul
+      %li= flash[:error]
+- if flash[:notice].present?
+  #flash-notice
+    %ul
+      %li= flash[:notice]
+.edit_card
+  =form_for :card do |cf|
+    = cf.label 'Front'
+    = cf.text_field :front
+    = cf.label 'Back'
+    = cf.text_field :back
+    = cf.submit 'Create Card'

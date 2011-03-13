@@ -68,6 +68,39 @@ class Admin::DecksController < Admin::ApplicationController
     redirect_to admin_decks_path
   end
 
+  # special form for phone, to add one new card
+  def add_one_card
+    if request.post?
+      front = params[:card][:front]
+      back = params[:card][:back]
+
+      if front.blank? || back.blank?
+        flash[:error] = 'Front and Back must not be blank'
+      else
+        @deck = Deck.all.select{|x| x.title =~ /^Misc/}.sort_by(&:created_at).last
+
+        # first time only
+        if @deck.nil?
+          @deck = Deck.new(:title => 'Misc 1', :front_description => 'Thai', :back_description => 'English', :active => true)
+          @deck.save!(false)
+        end
+
+        # already have ten cards, make a new one
+        if @deck.cards.length >= 10
+          @deck.title =~ /^Misc (.*)/
+          number = $1.to_i + 1
+          @deck = Deck.new(:title => "Misc #{number}", :front_description => 'Thai', :back_description => 'English', :active => true)
+          @deck.save!(false)
+        end
+
+        @card = Card.create(:front => front, :back => back, :deck_id => @deck.id)
+        flash[:notice] = "Added card to deck #{@deck.title}, front: #{front}, back: #{back}"
+      end
+    end
+
+    render :layout => false
+  end
+
   private
 
   def find_deck

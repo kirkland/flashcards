@@ -34,6 +34,10 @@ Flashcards::Application.routes.draw do
         post :activate
         post :deactivate
       end
+
+      collection do
+        match :add_one_card
+      end
     end
   end
 end
