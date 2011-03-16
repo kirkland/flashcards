@@ -93,7 +93,7 @@ class Admin::DecksController < Admin::ApplicationController
           @deck.save!(false)
         end
 
-        @card = Card.create(:front => front, :back => back, :deck_id => @deck.id)
+        Card.create(:front => front, :back => back, :deck_id => @deck.id)
         flash[:notice] = "Added card to deck #{@deck.title}, front: #{front}, back: #{back}"
       end
     end
