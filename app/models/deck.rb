@@ -59,4 +59,8 @@ class Deck < ActiveRecord::Base
   def has_sound?
     cards.first.sound_file_name.present?
   end
+
+  def quiz_results(user, back_to_front)
+    quizzes.where(:back_to_front => back_to_front).where(:user_id => user.id).order('created_at DESC').limit(3).collect(&:results)
+  end
 end

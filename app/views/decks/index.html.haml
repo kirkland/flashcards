@@ -13,6 +13,9 @@
             Review
           %a{:href => new_quiz_path(:deck_id => deck.id), :class => 'quiz_link'}
             Quiz
+        -if deck.quiz_results(@user, false).present?
+          Recent: 
+          =deck.quiz_results(@user, false).join(", ")
       .deck_side
         .deck_side_description
           %div="#{deck.back_description}"
@@ -21,4 +24,7 @@
             Review
           %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back'), :class => 'quiz_link'}
             Quiz
+        -if deck.quiz_results(@user, true).present?
+          Recent: 
+          =deck.quiz_results(@user, true).join(", ")
 .clear
