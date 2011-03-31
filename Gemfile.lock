@@ -67,7 +67,6 @@ GEM
     childprocess (0.1.4)
       ffi (~> 0.6.3)
     culerity (0.2.12)
-    diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     ffi (0.6.3)
@@ -110,19 +109,6 @@ GEM
     responders (0.6.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rspec (2.3.0)
-      rspec-core (~> 2.3.0)
-      rspec-expectations (~> 2.3.0)
-      rspec-mocks (~> 2.3.0)
-    rspec-core (2.3.1)
-    rspec-expectations (2.3.0)
-      diff-lcs (~> 1.1.2)
-    rspec-mocks (2.3.0)
-    rspec-rails (2.3.1)
-      actionpack (~> 3.0)
-      activesupport (~> 3.0)
-      railties (~> 3.0)
-      rspec (~> 2.3.0)
     rubyzip (0.9.4)
     selenium-webdriver (0.1.1)
       childprocess (= 0.1.4)
@@ -153,7 +139,6 @@ DEPENDENCIES
   inherited_resources
   paperclip
   rails (= 3.0.0)
-  rspec-rails (= 2.3.1)
   shoulda
   sqlite3-ruby
   taps!
