@@ -10,7 +10,6 @@ gem 'paperclip'
 gem 'aws-s3', :require => 'aws/s3'
 
 group :test, :development do
-  gem "rspec-rails", "2.3.1"
   gem 'capybara'
   gem 'shoulda'
 end
