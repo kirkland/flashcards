@@ -13,5 +13,6 @@ group :test, :development do
   gem 'capybara'
   gem 'shoulda'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'compass'
 end

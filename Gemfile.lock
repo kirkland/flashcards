@@ -75,6 +75,7 @@ GEM
     factory_girl_rails (1.0.1)
       factory_girl (~> 1.3)
       railties (>= 3.0.0)
+    faker (0.3.1)
     ffi (0.6.3)
       rake (>= 0.8.7)
     haml (3.0.22)
@@ -143,6 +144,7 @@ DEPENDENCIES
   capybara
   compass
   factory_girl_rails
+  faker
   haml (= 3.0.22)
   inherited_resources
   paperclip
