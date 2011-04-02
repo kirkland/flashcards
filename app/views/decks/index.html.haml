@@ -3,6 +3,9 @@
     .deck{:id => "deck_#{deck.id}"}
       -if deck.has_sound?
         .speaker=image_tag "speaker.png", :width => 30, :height => 30
+      -if @user.present?
+        .hide_deck
+          X
       .deck_title=deck.title
       .card_count="#{deck.cards.count} Cards"
       .deck_side

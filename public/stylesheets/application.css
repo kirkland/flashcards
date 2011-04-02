@@ -208,6 +208,13 @@ h1 {
     width: 0px;
     left: 10px;
     top: 5px; }
+  #decks_index .deck .hide_deck {
+    position: relative;
+    float: left;
+    height: 0px;
+    width: 0px;
+    left: 420px;
+    top: 5px; }
   #decks_index .deck .deck_side {
     float: left;
     width: 200px;
