@@ -107,8 +107,10 @@ Quiz = Class.create({
 
   next_card: function () {
     if (this.active_card_index == this.quiz_cards.length - 1) {
-      alert("End of the deck!");
+      $('review_message').update("End of the deck!");
+      $('review_message').show();
     } else {
+      $('review_message').update('').hide();
       this.front_showing = true;
       this.active_card_index += 1;
       this.refresh();
@@ -118,8 +120,10 @@ Quiz = Class.create({
 
   prev_card: function () {
     if (this.active_card_index == 0) {
-      alert("Beginning of deck!");
+      $('review_message').update("Beginning of the deck!");
+      $('review_message').show();
     } else {
+      $('review_message').update('').hide();
       this.front_showing = true;
       this.active_card_index -= 1;
       this.refresh();

@@ -11,6 +11,7 @@
     %span{:id => 'cards_remaining'}
       =@quiz.quiz_cards.length
 #quiz
+  #review_message{:style => 'display: none'}
   .flip_message
     -if is_mobile?
       Click On Card to Flip
