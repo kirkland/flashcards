@@ -63,4 +63,8 @@ class Deck < ActiveRecord::Base
   def quiz_results(user, back_to_front)
     quizzes.where(:back_to_front => back_to_front).where(:user_id => user.id).order('created_at DESC').limit(3).collect(&:results).reverse
   end
+
+  def hidden?(user)
+    HiddenDeck.where(:deck_id => id, :user_id => user.id).present?
+  end
 end
