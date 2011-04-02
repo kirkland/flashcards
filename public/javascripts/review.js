@@ -1,21 +1,15 @@
 Review = Class.create({
-  initialize: function(cards, show_side, browser_type) {
+  initialize: function(cards, mobile) {
     this.cards = cards;
-    this.show_side = show_side;
-    this.front_showing = show_side != "back";
+    this.front_showing = true;
     this.active_card_index = 0;
 
-    if (browser_type == 'phone') {
-      $('quiz_card').observe('click', this.flip_card.bindAsEventListener(this));
+    if (mobile) {
+      $('quiz_card_content').observe('click', this.flip_card.bindAsEventListener(this));
     } else {
       $('quiz_card_content').observe('click', this.next_card.bindAsEventListener(this));
-      if (this.front_showing == true) {
-        $('quiz_card').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
-        $('quiz_card').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
-      } else {
-        $('quiz_card').observe('mouseover', this.flip_card_front.bindAsEventListener(this));
-        $('quiz_card').observe('mouseout', this.flip_card_back.bindAsEventListener(this));
-      }
+      $('quiz_card_content').observe('mouseover', this.flip_card_back.bindAsEventListener(this));
+      $('quiz_card_content').observe('mouseout', this.flip_card_front.bindAsEventListener(this));
     }
 
     $('right_arrow').observe('click', this.next_card.bindAsEventListener(this));
@@ -62,9 +56,11 @@ Review = Class.create({
 
   next_card: function () {
     if (this.active_card_index == this.cards.length - 1) {
-      alert("End of the deck!");
+      $('review_message').update("End of the deck!");
+      $('review_message').show();
     } else {
-      this.front_showing = this.show_side == "front";
+      $('review_message').update('').hide();
+      this.front_showing = this.front_showing = true;
       this.active_card_index += 1;
       this.refresh();
     }
@@ -72,9 +68,11 @@ Review = Class.create({
 
   prev_card: function () {
     if (this.active_card_index == 0) {
-      alert("Beginning of deck!");
+      $('review_message').update("Beginning of the deck!");
+      $('review_message').show();
     } else {
-      this.front_showing = this.show_side == "front";
+      $('review_message').update('').hide();
+      this.front_showing = this.front_showing = true;
       this.active_card_index -= 1;
       this.refresh();
     }

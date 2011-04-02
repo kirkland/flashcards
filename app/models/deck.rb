@@ -45,13 +45,22 @@ class Deck < ActiveRecord::Base
     end
   end
 
-  def review_data
+  def review_data(show_back=false)
     cards.collect do |c|
       {
-        :front => c.front,
-        :back => c.back,
+        :front => show_back ? c.back : c.front,
+        :back => show_back ? c.front : c.back,
         :sound_url => c.sound.url
       }
     end.shuffle
+  end
+
+  # eh, just look at first card, and assume a deck either has all sounds or no sounds
+  def has_sound?
+    cards.first.sound_file_name.present?
+  end
+
+  def quiz_results(user, back_to_front)
+    quizzes.where(:back_to_front => back_to_front).where(:user_id => user.id).order('created_at DESC').limit(3).collect(&:results).reverse
   end
 end

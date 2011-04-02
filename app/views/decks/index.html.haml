@@ -1,0 +1,30 @@
+#decks_index
+  - @decks.each do |deck|
+    .deck
+      -if deck.has_sound?
+        .speaker=image_tag "speaker.png", :width => 30, :height => 30
+      .deck_title=deck.title
+      .card_count="#{deck.cards.count} Cards"
+      .deck_side
+        .deck_side_description
+          %div="#{deck.front_description}"
+        .deck_links
+          %a{:href => review_path(deck.id), :class => 'review_link'}
+            Review
+          %a{:href => new_quiz_path(:deck_id => deck.id), :class => 'quiz_link'}
+            Quiz
+        -if @user.present? && deck.quiz_results(@user, false).present?
+          Recent: 
+          =deck.quiz_results(@user, false).join(", ")
+      .deck_side
+        .deck_side_description
+          %div="#{deck.back_description}"
+        .deck_links
+          %a{:href => review_path(deck.id, :show => 'back'), :class => 'review_link'}
+            Review
+          %a{:href => new_quiz_path(:deck_id => deck.id, :show => 'back'), :class => 'quiz_link'}
+            Quiz
+        -if @user.present? && deck.quiz_results(@user, true).present?
+          Recent: 
+          =deck.quiz_results(@user, true).join(", ")
+.clear

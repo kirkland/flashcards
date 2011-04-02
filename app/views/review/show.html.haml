@@ -1,6 +1,7 @@
 #quiz
+  #review_message{:style => 'display: none'}
   .flip_message
-    -if is_mobile?
+    -if @mobile
       Click On Card to Flip
     -else
       Hover Over Card to Flip
@@ -14,4 +15,4 @@
   #sound
 
 - content_for :js do
-  review = new Review(#{@deck_data.html_safe}, "#{@show}", "#{is_mobile? ? 'phone' : 'regular'}");
+  review = new Review(#{@deck_data.html_safe}, "#{@mobile}");

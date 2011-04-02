@@ -119,3 +119,177 @@ h1 {
 
 #site_nav {
   text-align: center; }
+
+.float {
+  float: left; }
+
+.clear {
+  clear: both; }
+
+#quiz {
+  margin-top: 20px;
+  min-height: 600px; }
+  #quiz .flip_message {
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 5px; }
+  #quiz #quiz_card {
+    height: 300px;
+    width: 700px;
+    border: 1px solid black;
+    margin-left: 14px;
+    margin-right: 14px; }
+  #quiz #quiz_card_content {
+    line-height: 300px;
+    padding: 0;
+    text-align: center;
+    font-size: 40px; }
+  #quiz .arrow {
+    width: 100px;
+    height: 100px; }
+  #quiz .correct_links {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 310px;
+    height: 75px; }
+    #quiz .correct_links #correct_link {
+      background-image: url("/images/correct.png");
+      margin-right: 5px; }
+      #quiz .correct_links #correct_link:hover, #quiz .correct_links #correct_link.selected {
+        background-image: url("/images/correct_hover.png"); }
+      #quiz .correct_links #correct_link.selected {
+        background-image: url("/images/correct_selected.png"); }
+    #quiz .correct_links #incorrect_link {
+      background-image: url("/images/incorrect.png");
+      margin-left: 5px; }
+      #quiz .correct_links #incorrect_link:hover {
+        background-image: url("/images/incorrect_hover.png"); }
+      #quiz .correct_links #incorrect_link.selected {
+        background-image: url("/images/incorrect_selected.png"); }
+    #quiz .correct_links div {
+      float: left;
+      height: 75px;
+      width: 150px;
+      font-size: 20px;
+      line-height: 75px;
+      text-align: center; }
+  #quiz #sound {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px; }
+
+.index_title {
+  text-align: center;
+  margin-top: 10px; }
+
+#decks_index .deck {
+  width: 450px;
+  height: 200px;
+  margin: 5px;
+  border: 1px solid black;
+  float: left;
+  background: #8a64c8; }
+  #decks_index .deck .deck_title {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold; }
+  #decks_index .deck .card_count {
+    height: 25px;
+    text-align: center; }
+  #decks_index .deck .speaker {
+    position: relative;
+    float: left;
+    height: 0px;
+    width: 0px;
+    left: 410px;
+    top: 5px; }
+  #decks_index .deck .deck_side {
+    float: left;
+    width: 200px;
+    margin-left: 12px;
+    margin-right: 12px;
+    height: 120px;
+    text-align: center; }
+    #decks_index .deck .deck_side .deck_side_description {
+      height: 25px;
+      line-height: 25px; }
+    #decks_index .deck .deck_side .deck_links {
+      height: 80px;
+      border: 1px solid;
+      background: #6e41b8;
+      border-radius: 5px; }
+      #decks_index .deck .deck_side .deck_links a {
+        color: white; }
+        #decks_index .deck .deck_side .deck_links a:hover {
+          background: #583492; }
+    #decks_index .deck .deck_side .review_link, #decks_index .deck .deck_side .quiz_link {
+      width: 98px;
+      float: left;
+      height: 80px;
+      line-height: 80px; }
+    #decks_index .deck .deck_side .quiz_link {
+      border-left: 1px black solid; }
+
+#quiz_index {
+  margin-top: 20px; }
+  #quiz_index .deck {
+    background: #8a64c8;
+    width: 450px;
+    height: 200px;
+    margin: 5px;
+    border: 1px solid black;
+    float: left; }
+    #quiz_index .deck a:link, #quiz_index .deck a:visited {
+      color: black; }
+    #quiz_index .deck .title {
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      font-weight: bold; }
+    #quiz_index .deck .count_and_icon {
+      margin-left: auto;
+      margin-right: auto;
+      height: 30px;
+      width: 150px; }
+    #quiz_index .deck .card_count {
+      text-align: center;
+      font-weight: bold;
+      float: left;
+      width: 100px; }
+    #quiz_index .deck .speaker {
+      width: 20px;
+      float: left; }
+    #quiz_index .deck .side {
+      float: left;
+      width: 205px;
+      text-align: center;
+      padding: 10px;
+      height: 110px; }
+      #quiz_index .deck .side .details {
+        font-size: 12px;
+        float: right;
+        display: none; }
+      #quiz_index .deck .side:hover .details {
+        display: inline; }
+      #quiz_index .deck .side:hover {
+        background: #6e41b8; }
+      #quiz_index .deck .side .scores {
+        margin-top: 30px; }
+        #quiz_index .deck .side .scores .score {
+          font-size: 20px;
+          font-weight: bold;
+          margin-top: 10px; }
+
+#review_message {
+  border: dashed 1px blue;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 10px; }

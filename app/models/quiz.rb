@@ -30,4 +30,8 @@ class Quiz < ActiveRecord::Base
     end
     { :quiz_cards => cards_data, :active_card_id => active_card_id}
   end
+
+  def results
+    quiz_cards.where(:correct => true).count
+  end
 end

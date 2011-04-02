@@ -18,8 +18,7 @@
       - if flash[:error].present?
         #flash-error
           %ul
-            - flash[:error].each do |e|
-              %li= e
+            %li= flash[:error]
       - if flash[:notice].present?
         #flash-notice
           %ul
@@ -28,8 +27,6 @@
         =link_to "Home", root_path
         |
         - if current_user
-          =link_to "Quiz Yourself", quiz_index_path
-          |
           =link_to "My Profile", profile_user_path(:current)
           |
           =link_to "Logout", logout_path

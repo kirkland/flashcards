@@ -12,4 +12,6 @@ gem 'aws-s3', :require => 'aws/s3'
 group :test, :development do
   gem 'capybara'
   gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'compass'
 end
