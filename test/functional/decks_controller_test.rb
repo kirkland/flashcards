@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DecksControllerTest < ActionController::TestCase
   setup do
-    @deck = decks(:one)
+    @deck = Deck.make
   end
 
   test "should get index" do
