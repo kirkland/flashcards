@@ -1,8 +1,7 @@
 require 'test_helper'
 
-class DecksControllerTest < ActionController::TestCase
-  setup do
-  end
+class LoggedOutDecksControllerTest < ActionController::TestCase
+  tests DecksController
 
   test "should get index" do
     get :index
