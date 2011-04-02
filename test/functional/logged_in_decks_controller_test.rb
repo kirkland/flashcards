@@ -10,7 +10,7 @@ class LoggedInDecksControllerTest < ActionController::TestCase
     @user_session = UserSession.create(@user)
   end
 
-  test "should see link to hide deck" do
+  test 'should see link to hide deck' do
     get :index
     assert_select("#deck_#{@deck.id} .hide_deck")
   end
