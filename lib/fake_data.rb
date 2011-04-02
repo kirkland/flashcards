@@ -8,3 +8,12 @@ Deck.blueprint do
   active true
   bulk_cards { 3.times.collect { Faker::Lorem.words(2).join("|") }.join("\n")}
 end
+
+User.blueprint do
+  username = Faker::Name.name.downcase.gsub(/ /, '_')
+  username username
+  sequence(:email) {|u| "#{username}@example.com"}
+  password 'password'
+  password_confirmation 'password'
+  admin false
+end
