@@ -19,6 +19,9 @@ class LoggedOutDecksControllerTest < ActionController::TestCase
   end
 
   test 'should not show a non-active deck' do
+    @deck = Deck.make(:active => false)
+    get :index
+    assert_select("#deck_#{@deck.id}", false)
   end
 
   test 'should not show link to hide deck' do
