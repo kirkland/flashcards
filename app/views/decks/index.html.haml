@@ -5,7 +5,7 @@
         .speaker=image_tag "speaker.png", :width => 30, :height => 30
       -if @user.present?
         .hide_deck
-          X
+          =link_to 'X', hide_deck_path(deck), :method => 'post'
       .deck_title=deck.title
       .card_count="#{deck.cards.count} Cards"
       .deck_side

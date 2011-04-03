@@ -1,6 +1,7 @@
 class Deck < ActiveRecord::Base
   has_many :cards
   has_many :quizzes
+  has_many :hidden_decks
 
   after_update :save_cards
 
@@ -75,5 +76,15 @@ class Deck < ActiveRecord::Base
   def unhide!(user)
     hd = HiddenDeck.find_by_user_id_and_deck_id(user.id, id)
     hd.destroy if hd.present?
+  end
+
+  class << self
+    def not_hidden(user)
+      includes('hidden_decks').where('hidden_decks.user_id IS NULL OR hidden_decks.user_id!= ?', user.id)
+    end
+
+    def active
+      where(:active => true)
+    end
   end
 end

@@ -13,7 +13,11 @@ Flashcards::Application.routes.draw do
 
   resources :cards
 
-  resources :decks, :only => [:index]
+  resources :decks, :only => [:index] do
+    member do
+      post :hide
+    end
+  end
 
   resources :quiz, :only => [:new, :show] do
     member do
