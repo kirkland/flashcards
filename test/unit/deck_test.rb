@@ -22,4 +22,13 @@ class DeckTest < ActiveSupport::TestCase
     d = Deck.create(:title => "some title", :front_description => "x", :back_description => "y", :bulk_cards => "one|two\nthree|four")
     assert_not_equal [], d.cards
   end
+
+  test 'can hide a deck from a user' do
+    d = Deck.make
+    u = User.make
+
+    assert !d.hidden?(u)
+    d.hide!(u)
+    assert d.hidden?(u)
+  end
 end

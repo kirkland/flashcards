@@ -67,4 +67,13 @@ class Deck < ActiveRecord::Base
   def hidden?(user)
     HiddenDeck.where(:deck_id => id, :user_id => user.id).present?
   end
+
+  def hide!(user)
+    HiddenDeck.find_or_create_by_user_id_and_deck_id(user.id, id)
+  end
+
+  def unhide!(user)
+    hd = HiddenDeck.find_by_user_id_and_deck_id(user.id, id)
+    hd.destroy if hd.present?
+  end
 end
