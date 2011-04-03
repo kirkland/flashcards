@@ -18,9 +18,11 @@ class LoggedOutDecksControllerTest < ActionController::TestCase
     assert_select("#deck_#{@deck.id}")
   end
 
-  # how do i test that an element does not exist!?
-#  test 'should not show link to hide deck' do
-#    get :index
-#    assert_select("#deck_#{@deck.id} .hide_deck")
-#  end
+  test 'should not show a non-active deck' do
+  end
+
+  test 'should not show link to hide deck' do
+    get :index
+    assert_select("#deck_#{@deck.id} .hide_deck", false)
+  end
 end
