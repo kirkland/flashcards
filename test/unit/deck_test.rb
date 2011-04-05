@@ -31,4 +31,26 @@ class DeckTest < ActiveSupport::TestCase
     d.hide!(u)
     assert d.hidden?(u)
   end
+
+  test 'make sure new active deck is included in active scope' do
+    assert_difference 'Deck.active.count' do
+      Deck.make(:active => true)
+    end
+  end
+
+  test 'make sure inactive deck not included in active scope' do
+    assert_no_difference 'Deck.active.count' do
+      Deck.make(:active => false)
+    end
+  end
+
+  test 'make sure deck can be hidden from user' do
+    u = User.make
+    d = Deck.make
+
+    # possible to use assert difference and pass the param: u?
+    old_count = Deck.not_hidden(u).count
+    d.hide!(u)
+    assert_equal(old_count - 1, Deck.not_hidden(u).count)
+  end
 end
