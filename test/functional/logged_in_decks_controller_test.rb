@@ -5,7 +5,6 @@ class LoggedInDecksControllerTest < ActionController::TestCase
 
   setup do
     @deck = Deck.make(:active => true)
-
     @user = User.make
     @user_session = UserSession.create(@user)
   end
@@ -19,5 +18,11 @@ class LoggedInDecksControllerTest < ActionController::TestCase
   test 'should see link to hide deck' do
     get :index
     assert_select("#deck_#{@deck.id} .hide_deck")
+  end
+
+  test 'should not show a hidden deck ' do
+    HiddenDeck.create(:deck_id => @deck.id, :user_id => @user.id)
+    get :index
+    assert_select("#deck_#{@deck.id}", false)
   end
 end
