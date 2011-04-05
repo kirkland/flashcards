@@ -79,8 +79,9 @@ class Deck < ActiveRecord::Base
   end
 
   class << self
+    # aha, thank you stack overflow: http://stackoverflow.com/questions/3875564/how-to-use-rails-3-scope-to-filter-on-habtm-join-table-where-the-associated-recor
     def not_hidden(user)
-      includes('hidden_decks').where('hidden_decks.user_id IS NULL OR hidden_decks.user_id!= ?', user.id)
+      joins('left outer join hidden_decks on decks.id = hidden_decks.deck_id').where('hidden_decks.deck_id is null')
     end
 
     def active
