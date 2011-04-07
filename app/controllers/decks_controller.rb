@@ -3,13 +3,14 @@ class DecksController < ApplicationController
   before_filter :find_deck, :only => [:hide]
 
   def index
-    if params[:all] || @user.nil?
+    if params[:all]
       @decks = Deck.all
     else
-      @decks = Deck.where(:active => true).not_hidden(current_user)
+      @decks = Deck.where(:active => true)
     end
   end
 
+  # not used currently
   def hide
     @deck.hide!(@user)
     flash[:notice] = "Deck \"#{@deck.title}\" is now hidden."

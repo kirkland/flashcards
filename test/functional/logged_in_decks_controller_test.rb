@@ -15,14 +15,15 @@ class LoggedInDecksControllerTest < ActionController::TestCase
     assert_select("#deck_#{@deck.id}", false)
   end
 
-  test 'should see link to hide deck' do
-    get :index
-    assert_select("#deck_#{@deck.id} .hide_deck")
-  end
-
-  test 'should not show a hidden deck ' do
-    HiddenDeck.create(:deck_id => @deck.id, :user_id => @user.id)
-    get :index
-    assert_select("#deck_#{@deck.id}", false)
-  end
+#  # not used currently
+#  test 'should see link to hide deck' do
+#    get :index
+#    assert_select("#deck_#{@deck.id} .hide_deck")
+#  end
+#
+#  test 'should not show a hidden deck ' do
+#    HiddenDeck.create(:deck_id => @deck.id, :user_id => @user.id)
+#    get :index
+#    assert_select("#deck_#{@deck.id}", false)
+#  end
 end

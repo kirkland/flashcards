@@ -24,8 +24,9 @@ class LoggedOutDecksControllerTest < ActionController::TestCase
     assert_select("#deck_#{@deck.id}", false)
   end
 
-  test 'should not show link to hide deck' do
-    get :index
-    assert_select("#deck_#{@deck.id} .hide_deck", false)
-  end
+  # not used currently
+#  test 'should not show link to hide deck' do
+#    get :index
+#    assert_select("#deck_#{@deck.id} .hide_deck", false)
+#  end
 end
