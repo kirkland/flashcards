@@ -146,7 +146,8 @@ Quiz = Class.create({
       $('incorrect_link').removeClassName('selected');
     }
     if (this.active_card_index == this.quiz_cards.length - 1) {
-      alert("End of the deck!");
+      $('review_message').update("End of the deck!");
+      $('review_message').show();
     } else {
       this.front_showing = true;
       this.active_card_index += 1;
@@ -170,7 +171,8 @@ Quiz = Class.create({
     }
     var incorrect_card = this.active_card().id;
     if (this.active_card_index == this.quiz_cards.length - 1) {
-      alert("End of the deck!");
+      $('review_message').update("End of the deck!");
+      $('review_message').show();
     } else {
       this.front_showing = true;
       this.active_card_index += 1;
