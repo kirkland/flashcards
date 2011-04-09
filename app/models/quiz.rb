@@ -1,7 +1,7 @@
 class Quiz < ActiveRecord::Base
   belongs_to :deck
   belongs_to :user
-  has_many :quiz_cards
+  has_many :quiz_cards, :dependent => :destroy
 
   def start_quiz
     deck.cards.shuffle.each do |c|
@@ -33,5 +33,11 @@ class Quiz < ActiveRecord::Base
 
   def results
     quiz_cards.where(:correct => true).count
+  end
+
+  class << self
+    def destroy_old_unfinished_quizzes
+      Quiz.where('created_at < ?', Time.now - 1.day).select{|q| q.quiz_cards.unanswered.present?}.each(&:destroy)
+    end
   end
 end

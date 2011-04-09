@@ -6,6 +6,8 @@ class QuizCard < ActiveRecord::Base
   scope :visited, :conditions => {:visited => true}
   scope :correct, :conditions => {:correct => true}
   scope :incorrect, :conditions => {:correct => false}
+  scope :answered, :conditions => {:correct.ne => nil}
+  scope :unanswered, :conditions => {:correct => nil}
 
   def front
     card.front
