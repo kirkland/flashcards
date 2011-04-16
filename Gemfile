@@ -9,6 +9,12 @@ gem 'inherited_resources'
 gem 'paperclip'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'meta_where'
+gem 'jammit'
+
+group :development do
+  gem 'coffee-script'
+#  gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
+end
 
 group :test, :development do
   gem 'capybara'

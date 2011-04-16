@@ -13,24 +13,24 @@
 ActiveRecord::Schema.define(:version => 20110402231042) do
 
   create_table "cards", :force => true do |t|
-    t.text      "front"
-    t.text      "back"
-    t.integer   "deck_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "sound_file_name"
-    t.string    "sound_content_type"
-    t.integer   "sound_file_size"
-    t.timestamp "sound_updated_at"
+    t.text     "front"
+    t.text     "back"
+    t.integer  "deck_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "sound_file_name"
+    t.string   "sound_content_type"
+    t.integer  "sound_file_size"
+    t.datetime "sound_updated_at"
   end
 
   create_table "decks", :force => true do |t|
-    t.string    "title"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "front_description", :limit => 128
-    t.string    "back_description",  :limit => 128
-    t.boolean   "active",                           :default => false
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "front_description", :limit => 128
+    t.string   "back_description",  :limit => 128
+    t.boolean  "active",                           :default => false
   end
 
   create_table "hidden_decks", :force => true do |t|
@@ -50,23 +50,23 @@ ActiveRecord::Schema.define(:version => 20110402231042) do
   add_index "quiz_cards", ["quiz_id"], :name => "index_quiz_cards_on_quiz_id"
 
   create_table "quizzes", :force => true do |t|
-    t.integer   "deck_id"
-    t.integer   "user_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.boolean   "back_to_front",  :default => false, :null => false
-    t.integer   "active_card_id"
+    t.integer  "deck_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "back_to_front",  :default => false, :null => false
+    t.integer  "active_card_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string    "username"
-    t.string    "email"
-    t.string    "crypted_password"
-    t.string    "password_salt"
-    t.string    "persistence_token"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.boolean   "admin",             :default => false
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin",             :default => false
   end
 
 end

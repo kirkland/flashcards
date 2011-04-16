@@ -1,0 +1,9 @@
+package_assets: always
+
+javascripts:
+  all:
+    - public/javascripts/*.js
+
+stylesheets:
+  all:
+    - public/stylesheets/*.css

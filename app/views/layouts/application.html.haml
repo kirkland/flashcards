@@ -2,14 +2,11 @@
 %html
   %head
     %title Flashcards
-    = stylesheet_link_tag :all
-    = javascript_include_tag :defaults
-    = javascript_include_tag 'jquery-1.4.3'
+    = include_javascripts :all
+    = include_stylesheets :all
     :javascript
       var $j = jQuery.noConflict();     
     = javascript_tag "document.observe('dom:loaded', function() { #{yield :js}; });"
-    = javascript_include_tag 'quiz'
-    = javascript_include_tag 'review'
     = csrf_meta_tag
   %body
     #logo
