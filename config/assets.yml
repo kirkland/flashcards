@@ -1,4 +1,4 @@
-package_assets: always #uncomment to package files in dev
+#package_assets: always #uncomment to package files in dev
 
 javascripts:
   libs:
@@ -14,4 +14,4 @@ javascripts:
 
 stylesheets:
   all:
-    - public/stylesheets/*.css
+    - public/stylesheets/application.css
