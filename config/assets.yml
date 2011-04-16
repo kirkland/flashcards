@@ -1,6 +1,11 @@
-package_assets: always
+#package_assets: always #uncomment to package files in dev
 
 javascripts:
+  libs:
+    - public/javascripts/libs/prototype.js
+    - public/javascripts/libs/effects.js
+    - public/javascripts/libs/controls.js
+    - public/javascripts/libs/dragdrop.js
   all:
     - public/javascripts/*.js
 

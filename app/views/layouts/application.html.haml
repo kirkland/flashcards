@@ -2,10 +2,9 @@
 %html
   %head
     %title Flashcards
+    = include_javascripts :libs
     = include_javascripts :all
     = include_stylesheets :all
-    :javascript
-      var $j = jQuery.noConflict();     
     = javascript_tag "document.observe('dom:loaded', function() { #{yield :js}; });"
     = csrf_meta_tag
   %body
