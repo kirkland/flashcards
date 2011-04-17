@@ -42,34 +42,32 @@ Quiz = Class.create({
   },
 
   refresh: function() {
-    setTimeout(function () {
-      $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
+    $('quiz_card_content').update(this.front_showing ? this.active_card().front : this.active_card().back);
 
-      // show a selected button if we know correct/incorrect
-      if (this.active_card().correct == true ) {
-        $('correct_link').addClassName('selected');
-        $('incorrect_link').removeClassName('selected');
-      } else if (this.active_card().correct == false) {
-        $('incorrect_link').addClassName('selected');
-        $('correct_link').removeClassName('selected');
-      } else {
-        $('correct_link').removeClassName('selected');
-        $('incorrect_link').removeClassName('selected');
+    // show a selected button if we know correct/incorrect
+    if (this.active_card().correct == true ) {
+      $('correct_link').addClassName('selected');
+      $('incorrect_link').removeClassName('selected');
+    } else if (this.active_card().correct == false) {
+      $('incorrect_link').addClassName('selected');
+      $('correct_link').removeClassName('selected');
+    } else {
+      $('correct_link').removeClassName('selected');
+      $('incorrect_link').removeClassName('selected');
+    }
+
+    var new_url = 'audioUrl=' + this.active_card().sound_url;
+    if (new_url.match(/missing.png$/) || this.sound_url != new_url) {
+      if (null != $('sound_embed')) {
+        $('sound_embed').remove();
       }
+    }
 
-      var new_url = 'audioUrl=' + this.active_card().sound_url;
-      if (new_url.match(/missing.png$/) || this.sound_url != new_url) {
-        if (null != $('sound_embed')) {
-          $('sound_embed').remove();
-        }
-      }
+    if (!new_url.match(/missing.png$/) && this.sound_url != new_url) {
+      $('sound').insert({bottom: new Element('embed', {id: 'sound_embed', height: "27", width: "400", src: "http://www.google.com/reader/ui/3523697345-audio-player.swf", pluginspage: "http://www.macromedia.com/go/getflashplayer", flashvars: new_url})});
+    }
 
-      if (!new_url.match(/missing.png$/) && this.sound_url != new_url) {
-        $('sound').insert({bottom: new Element('embed', {id: 'sound_embed', height: "27", width: "400", src: "http://www.google.com/reader/ui/3523697345-audio-player.swf", pluginspage: "http://www.macromedia.com/go/getflashplayer", flashvars: new_url})});
-      }
-
-      this.sound_url = new_url;
-    }.bind(this), 500);
+    this.sound_url = new_url;
   },
 
   update_db: function (params) {
