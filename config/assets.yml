@@ -8,10 +8,8 @@ javascripts:
     - public/javascripts/libs/dragdrop.js
     - public/javascripts/libs/rails.js
   all:
-    - public/javascripts/application.js
-    - public/javascripts/review.js
-    - public/javascripts/quiz.js
+    - public/javascripts/*.js
 
 stylesheets:
   all:
-    - public/stylesheets/application.css
+    - public/stylesheets/*.css
