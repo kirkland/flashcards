@@ -5,7 +5,7 @@
     = include_javascripts :libs
     = include_javascripts :all
     = include_stylesheets :all
-    = javascript_tag "document.observe('dom:loaded', function() { #{yield :js}; });"
+    = javascript_tag "#{js_init} document.observe('dom:loaded', function() { #{js_dom_loaded} #{yield :js}; #{js_after_yield} });"
     = csrf_meta_tag
   %body
     #logo
